@@ -1,40 +1,45 @@
+include("../src/JOH.jl")
+
 module MDMKP
 
-using Main.JOH
-using JuMP
-using CPLEX
+using Main.JOH #import abstract types
+using JuMP #used to create the MOI model
+using CPLEX #used to provide the default optimizer
 
-export Prob, Sol, load_folder, create_MIPS_model
+export MDMKP_Prob, MDMKP_Sol, load_folder, create_MIPS_model
 
-struct Problem_ID
+struct Problem_ID <: JOH.ProblemID
+	id::Int
 	dataset::Int
 	instance::Int
 	case::Int
+	tightness::Float64
+	n_vars::Int
+	n_demands::Int
+	n_dimensions::Int
+	mixed_obj::Bool
 end
 
-"""A problem has an:
-	objective: the array of values that will be multiplied with a solution mask
-		to get the objective value of the solution
-	upper_bounds: a vector of tuples pairing:
-		a vector of values to be multiplied by the solution mask
-		a value the sum of said products MUST NOT exceed
-	lower_bounds: same as upper_bounds, but the sum MUST equal or exceed the
-		second value
-	id: the dataset, instance, case values
-"""
-struct Prob <: JOH.Problem
+struct MDMKP_Prob <: JOH.Problem
     objective::Vector{Int}
     upper_bounds::Vector{Tuple{Vector{Int},Int}}
     lower_bounds::Vector{Tuple{Vector{Int},Int}}
 	id::Problem_ID
 end
 
+struct MDMKP_Sol <: JOH.Solution
+	problem::MDMKP_Prob
+	value::BitArray
+	score::Number
+	objective::Number
+	infeasibility::Number
+end
+
 include("load_folder.jl")
 
-
 """Select slices of MDMKP problems"""
-function slice_select(problems::Vector{Prob};
-		datasets=1:9, cases=1:6, instances=1:15)::Vector{Prob}
+function slice_select(problems::Vector{MDMKP_Prob};
+		datasets=1:9, cases=1:6, instances=1:15)::Vector{MDMKP_Prob}
 	extracted = []
 	for prob in problems
 		if prob.id.dataset in datasets &&
@@ -46,17 +51,8 @@ function slice_select(problems::Vector{Prob};
 	extracted
 end
 
-
-struct Sol <: JOH.Solution
-	problem::Prob
-	value::BitArray
-	score::Number
-	objective::Number
-	infeasibility::Number
-end
-
 """Solution Constructor """
-function Sol(bitlist::BitArray, problem::Prob)
+function MDMKP_Sol(bitlist::BitArray, problem::MDMKP_Prob)
     upper_bounds_totals = [sum(coeffs .* bitlist) for (coeffs, bound) in
 		problem.upper_bounds]
     lower_bounds_totals = [sum(coeffs .* bitlist) for (coeffs, bound) in
@@ -84,7 +80,7 @@ function Sol(bitlist::BitArray, problem::Prob)
 	#the score is the objective function if feasible, else infeasibility
     score = infeasibility > 0 ? -infeasibility : objective_value
 
-    Sol(
+    MDMKP_Sol(
 		problem,
         bitlist,
         score,
@@ -96,8 +92,11 @@ end
 """Accept an MDMKP problem, and return a formulation that includes heavily
 penalized artificial variables to make the discovery of a feasibile solution
 trivial. """
-function create_MIPS_model(problem::Prob; optimizer=CPLEX.Optimizer, time_limit=20, weight=20,
-		num_threads=6)
+function create_MIPS_model(problem::MDMKP_Prob;
+		optimizer=CPLEX.Optimizer,
+		time_limit=20,
+		weight=1000,
+		num_threads=6)::Model
 	model = Model(optimizer)
 
 	#set cplex params

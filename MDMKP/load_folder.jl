@@ -1,16 +1,17 @@
 """Will load a collection of 90 problems from a passed filename.
 Files must be in the
-http://people.brunel.ac.uk/~mastjjb/jeb/orlib/mdmkpinfo.html format.s"""
-function parse_file(filename::String, dataset_num::Int)::Vector{Prob}
+http://people.brunel.ac.uk/~mastjjb/jeb/orlib/mdmkpinfo.html format."""
+function parse_file(filename::String, dataset_num::Int)::Vector{MDMKP_Prob}
     f = open(filename)
 
-    problems::Vector{Prob} = []
+    problems::Vector{MDMKP_Prob} = []
 
     #the very first item in the array is the amount of problems found in the
     #file.
     amount_of_problems = next_line(f)[1]
 
 	instance_num = 0
+	uid = 0
     #so now for every problem:
     for problem in 1:amount_of_problems
 		instance_num += 1
@@ -40,23 +41,25 @@ function parse_file(filename::String, dataset_num::Int)::Vector{Prob}
 
         q = [1, div(m, 2), m, 1, div(m, 2), m]
         for i in 1:6
-            push!(problems, Prob(
+			uid += 1
+			id = Problem_ID(
+				uid,
+				dataset_num,
+				instance_num,
+				i,
+				get_tightness(i),
+				length(cost_coefficient_values[i]),
+				length(lower_bounds[1:q[i]]),
+				length(upper_bounds),
+				is_mixed(i)
+			)
+            push!(problems, MDMKP_Prob(
                 cost_coefficient_values[i],
                 upper_bounds,
                 lower_bounds[1:q[i]],
-				Problem_ID(dataset_num, instance_num, i)
+				id
             ))
         end
-    end
-
-    #problems are currently in an instance first order: for every problem instance,
-    #generate the six cases and append them
-    #however, vasko and lu do all their cplex computations in a case first order:
-    #for every case, fill in the problem instance
-	#let's make our load function the same as their load function
-    new_problems = Vector{Prob}()
-    for offset in 1:6
-        append!(new_problems, [problems[i] for i in offset:6:90])
     end
 
     problems
@@ -74,9 +77,17 @@ function parse_int(x)
     return parse(Int, x)
 end
 
+function get_tightness(case)
+	[.25, .5, .75][Int(ceil(case/5))]
+end
+
+function is_mixed(case)
+	case > 3
+end
+
 function load_folder(
 		folder_path="MDMKP/benchmark_problems",
-		filename="mdmkp_ct{ds}.txt", datasets=1:9)
+		filename="mdmkp_ct{ds}.txt", datasets=1:9)::Vector{MDMKP_Prob}
 	collection = []
 	for ds in datasets
 		fn = replace(filename, "{ds}"=>"$ds")

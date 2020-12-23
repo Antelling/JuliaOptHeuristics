@@ -17,7 +17,7 @@ end
 
 function make_SSIT_method(tolerances, times,
 		name, num_threads)
-	SSIT_method(tolerances, times, name, num_threads, test_problem)
+	SSIT_method(tolerances, times, name, num_threads, run_SSIT)
 end
 
 """
@@ -25,24 +25,27 @@ Accept an MDMKP problem, an optional initial solution and associated generation
 time, and an array of tolerances and a matched array of time limits. Run the
 SSIT method on the problem, and record the results thereof.
 """
-function test_problem(m::JuMP.Model, method::SSIT_method)
+function run_SSIT(m::JuMP.Model, method::SSIT_method)
 	Matheur.set_threads!(m, method.num_threads)
-	sol_results = Vector{Matheur.SolverStatus}() #store results of each tolerance step
+
+	results_DF = Matheur.Model_DF()
 
 	for i in 1:length(method.tolerances)
 		Matheur.set_tolerance!(m, method.tolerances[i])
 		Matheur.set_time!(m, method.times[i])
 
 		elapsed_time = Matheur.silent_optimize!(m)
-		status = Matheur.SolverStatus(m, elapsed_time)
-		push!(sol_results, status)
+
+		row = Matheur.get_DF_row(m, elapsed_time=elapsed_time, index=i)
+		push!(results_DF, row)
 
 		if termination_status(m) == MOI.OPTIMAL || termination_status(m) ==
 				MOI.INFEASIBLE
 			break
 		end
 	end
-	sol_results
+
+	results_DF
 end
 
 end
