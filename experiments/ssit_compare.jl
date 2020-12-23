@@ -74,12 +74,12 @@ function generate_comparison_data(
 		for method in methods
 			model = MDMKP.create_MIPS_model(problem)
 			ssit_phases = JOH.Matheur.evaluate(model, method)
-			ssit_phases[:method] = method.name
-			ssit_phases[:problem_id] = problem.id.id
+			ssit_phases.method .= method.name
+			ssit_phases.problem_id .= problem.id.id
 
 			push!(experiment.SSIT_phases, ssit_phases)
 			lp = last(ssit_phases, 1)
-			solution = MDMKP.MDMKP_Sol(lp[:bitarr][1], problem)
+			solution = MDMKP.MDMKP_Sol(lp[!, :bitarr][1], problem)
 
 			method_problem_result = MethodProblemResult(method, problem,
 				solution, lp)
@@ -93,8 +93,8 @@ function ba_rep(ba)
 	join([b == 1 ? "1" : "0" for b in ba], "")
 end
 
-all_problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(12)
+problems = MDMKP.load_folder()
+ssit_methods = make_SSIT_methods(12, n_threads=8)
 
 experiment = ExperimentResults()
 data = generate_comparison_data(
