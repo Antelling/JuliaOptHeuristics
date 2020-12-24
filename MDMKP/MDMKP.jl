@@ -1,5 +1,3 @@
-include("../src/JOH.jl")
-
 module MDMKP
 
 using Main.JOH #import abstract types

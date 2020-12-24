@@ -46,14 +46,14 @@ end
 MethodProblemResult(method, problem, solution, last_row) = MethodProblemResult(
 	method.name,
 	problem.id.id,
-	last_row[:gap],
-	last_row[:rtol],
-	last_row[:elapsed_time],
-	last_row[:solve_time],
-	last_row[:objective],
+	last_row[!, :gap],
+	last_row[!, :rtol],
+	last_row[!, :elapsed_time],
+	last_row[!, :solve_time],
+	last_row[!, :objective],
 	solution.objective,
 	solution.infeasibility,
-	last_row[:index])
+	last_row[!, :index])
 
 mutable struct ExperimentResults
 	problem_ids::Vector{MDMKP.Problem_ID}
@@ -94,7 +94,7 @@ function ba_rep(ba)
 end
 
 problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(12, n_threads=8)
+ssit_methods = make_SSIT_methods(12, n_threads=3)
 
 experiment = ExperimentResults()
 data = generate_comparison_data(
@@ -102,11 +102,11 @@ data = generate_comparison_data(
 
 pids = DataFrame(StructArray(data.problem_ids))
 pms = DataFrame(StructArray(data.method_problem_results))
-pms[:id] = pms[:problem_id]
+pms[!, :id] = pms[:problem_id]
 df = innerjoin(pids, pms, on=:id)
 df = select(df, Not(:id))
 ssit_phases = vcat(experiment.SSIT_phases...)
-ssit_phases[:bitarr] = map(ba_rep, ssit_phases[:bitarr])
+ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
 
 
 XLSX.writetable(
