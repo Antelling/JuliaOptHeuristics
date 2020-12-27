@@ -94,7 +94,7 @@ function ba_rep(ba)
 end
 
 problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(12, n_threads=3)
+ssit_methods = make_SSIT_methods(12, n_threads=8)
 
 experiment = ExperimentResults()
 data = generate_comparison_data(
