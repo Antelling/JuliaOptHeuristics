@@ -2,20 +2,34 @@ module Meta
 
 using ..JOH
 
-abstract type ReproductionMethod end
-abstract type TrainingMethod end
+
+struct Reproducer
+	n_top::Int
+	n_bottom::Int
+	n_random::Int
+	use_mean::Bool
+	select_extrema_every_perturb::Bool
+	reproducer::Function
+end
+
+struct Trainer
+	trainer::Function
+end
 
 struct Population
     #algorithm behavior settings
     brood_size::Int
     population_size::Int
-    reproduction_method::ReproductionMethod
-    training_method::TrainingMethod
+
+	#sub methods
+    reproduction_method::Reproducer
+    training_method::Trainer
 
     #runtime settings
     time_limit::Int
     num_threads::Int
 end
+
 
 include("Reproduction.jl")
 include("Mutation.jl")

@@ -1,7 +1,7 @@
 """Will load a collection of 90 problems from a passed filename.
 Files must be in the
 http://people.brunel.ac.uk/~mastjjb/jeb/orlib/mdmkpinfo.html format."""
-function parse_file(filename::String, dataset_num::Int)::Vector{MDMKP_Prob}
+function parse_file(filename::String, dataset_num::Int, uid=0)
     f = open(filename)
 
     problems::Vector{MDMKP_Prob} = []
@@ -11,7 +11,6 @@ function parse_file(filename::String, dataset_num::Int)::Vector{MDMKP_Prob}
     amount_of_problems = next_line(f)[1]
 
 	instance_num = 0
-	uid = 0
     #so now for every problem:
     for problem in 1:amount_of_problems
 		instance_num += 1
@@ -62,7 +61,7 @@ function parse_file(filename::String, dataset_num::Int)::Vector{MDMKP_Prob}
         end
     end
 
-    problems
+    (problems, uid)
 end
 
 function next_line(file::IOStream)
@@ -89,9 +88,10 @@ function load_folder(
 		folder_path="MDMKP/benchmark_problems",
 		filename="mdmkp_ct{ds}.txt", datasets=1:9)::Vector{MDMKP_Prob}
 	collection = []
+	id = 0
 	for ds in datasets
 		fn = replace(filename, "{ds}"=>"$ds")
-		problems = parse_file(joinpath(folder_path, fn), ds)
+		problems, id = parse_file(joinpath(folder_path, fn), ds, id)
 		push!(collection, problems)
 	end
 	vcat(collection...)
