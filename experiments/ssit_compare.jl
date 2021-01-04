@@ -97,8 +97,9 @@ function ba_rep(ba)
 	join([b == 1 ? "1" : "0" for b in ba], "")
 end
 
+
 problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(6, n_threads=16)
+ssit_methods = make_SSIT_methods()
 
 experiment = ExperimentResults()
 data = generate_comparison_data(
