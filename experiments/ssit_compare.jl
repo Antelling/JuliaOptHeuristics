@@ -8,23 +8,27 @@ include("../MDMKP/MDMKP.jl")
 
 """ create a variety of SSIT methods. Accept a parameter to multiply each time
 limit by. """
-function make_SSIT_methods(m=1; n_threads=6)
+function make_SSIT_methods(m=60; n_threads=8)
     [
         JOH.Matheur.SSIT.make_SSIT_method(
-			[.005, .01, .05, .08],
-			[m*5, m*5, m*5, m*5],
+			[.001, .005, .01, .02, .05],
+			[m*5, m*5, m*5, m*5, m*5],
 			"even time", n_threads)
         JOH.Matheur.SSIT.make_SSIT_method(
-			[.005, .005, .005, .005],
-			[m*5,m*5,m*5,m*5],
+			[.001, .001, .001, .001, .001],
+			[m*5,m*5,m*5,m*5,m*5],
 			"one tolerance", n_threads)
         JOH.Matheur.SSIT.make_SSIT_method(
-			[.005, .01, .05, .08],
-			[m*2, m*4, m*6, m*8],
+			[.001, .001, .005, .005, .005],
+			[m*5, m*5, m*5, m*5, m*5],
+			"tight tolerances", n_threads)
+        JOH.Matheur.SSIT.make_SSIT_method(
+			[.001, .005, .01, .02, .05],
+			[m*2, m*4, m*5, m*6, m*8],
             "increasing time", n_threads)
         JOH.Matheur.SSIT.make_SSIT_method(
-			[.005, .01, .05, .08],
-			[m*8, m*6, m*4, m*2],
+			[.001, .005, .01, .02, .05],
+			[m*8, m*6, m*5, m*4, m*2],
             "decreasing time", n_threads)
     ]
 end
