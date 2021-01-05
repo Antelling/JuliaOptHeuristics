@@ -7,27 +7,6 @@ table = XLSX.readtable(
     "method_problem_results")
 df = DataFrame(table...)
 
-function get_methods(df)
-    m = @from i in df begin
-        @where i.infeasibility == 0
-        @select i.method_name
-    end
-    m |> @unique() |> collect
-end
-
-function get_means(method, df)
-    @from i in df begin
-        @where i.infeasibility == 0
-        @where i.method_name == method
-        @select i.lowest_gap
-        @collect DataFrame
-    end
-end
-
-function get_means(df)
-    Dict( method.value => get_means(method, df) for method in get_methods(df) )
-end
-
 function save_plot(p, name)
     Gadfly.with_theme(:dark) do
         img = PNG("analysis/graphs/$name.png", 30cm, 10cm, dpi=300)
