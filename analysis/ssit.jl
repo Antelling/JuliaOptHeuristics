@@ -1,4 +1,4 @@
-using DataFrames, XLSX
+using DataFrames, XLSX, Statistics
 using Query
 using Gadfly, Cairo, Fontconfig
 
@@ -19,6 +19,10 @@ function save_plot(p, name)
 end
 
 feasible_df = df |> @filter(_.infeasibility == 0 && _.dataset > 4) |> DataFrame
+infeasible_df = df |> @filter(_.infeasibility > 0 && _.dataset > 4) |> DataFrame
+
+names(feasible_df)
+by(feasible_df, :lowest_gap, :case=>mean)
 
 xticks = [.005, .05, .25, .5, .75]
 p = plot(feasible_df, x="lowest_gap", y="total_time",
@@ -27,4 +31,4 @@ p = plot(feasible_df, x="lowest_gap", y="total_time",
     # Scale.x_log10(),
     Geom.subplot_grid(Geom.point),
     theme())
-save_plot(p, "scatter")
+save_plot(p, "infeasible_scatter")

@@ -16,7 +16,8 @@ struct Trainer
 	trainer::Function
 end
 
-struct Population
+struct Environment
+	problem::JOH.Problem
     #algorithm behavior settings
     brood_size::Int
     population_size::Int
@@ -30,11 +31,16 @@ struct Population
     num_threads::Int
 end
 
+struct Population
+	solutions::Vector{JOH.Solution}
+	environment::Environment
+end
+
 
 include("Reproduction.jl")
-include("Mutation.jl")
 include("LocalSearch.jl")
 include("Population.jl")
-include("Subsample.jl")
+
+
 
 end

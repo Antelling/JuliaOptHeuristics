@@ -98,30 +98,34 @@ function ba_rep(ba)
 end
 
 
-problems = MDMKP.load_folder()
+all_problems = MDMKP.load_folder()
 ssit_methods = make_SSIT_methods()
 
-experiment = ExperimentResults()
-data = generate_comparison_data(
-	problems, ssit_methods, experiment)
+for dataset in 9:-1:1
+	problems = filter(x->x.id.dataset==dataset, problems)
 
-pids = DataFrame(StructArray(data.problem_ids))
-pms = DataFrame(StructArray(data.method_problem_results))
-pms[!, :id] = pms[!, :problem_id]
-df = innerjoin(pids, pms, on=:id)
-df = select(df, Not(:id))
-ssit_phases = vcat(experiment.SSIT_phases...)
-ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
+	experiment = ExperimentResults()
+	data = generate_comparison_data(
+		problems, ssit_methods, experiment)
+
+	pids = DataFrame(StructArray(data.problem_ids))
+	pms = DataFrame(StructArray(data.method_problem_results))
+	pms[!, :id] = pms[!, :problem_id]
+	df = innerjoin(pids, pms, on=:id)
+	df = select(df, Not(:id))
+	ssit_phases = vcat(experiment.SSIT_phases...)
+	ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
 
 
-XLSX.writetable(
-	"report.xlsx",
-	method_problem_results = (
-		collect(DataFrames.eachcol(df)),
-		DataFrames.names(df)),
-	ssit_phases = ( collect(DataFrames.eachcol(ssit_phases)),
-		DataFrames.names(ssit_phases) ),
-	problem_id_info = (
-		collect(DataFrames.eachcol(pids)),
-		DataFrames.names(pids)),
-	overwrite=true)
+	XLSX.writetable(
+		"$(dataset)_report.xlsx",
+		method_problem_results = (
+			collect(DataFrames.eachcol(df)),
+			DataFrames.names(df)),
+		ssit_phases = ( collect(DataFrames.eachcol(ssit_phases)),
+			DataFrames.names(ssit_phases) ),
+		problem_id_info = (
+			collect(DataFrames.eachcol(pids)),
+			DataFrames.names(pids)),
+		overwrite=true)
+end

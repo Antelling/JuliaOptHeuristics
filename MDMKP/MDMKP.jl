@@ -50,7 +50,7 @@ function slice_select(problems::Vector{MDMKP_Prob};
 end
 
 """Solution Constructor """
-function MDMKP_Sol(bitlist::BitArray, problem::MDMKP_Prob)
+function MDMKP_Sol(bitlist::AbstractArray{Bool}, problem::MDMKP_Prob)
     upper_bounds_totals = [sum(coeffs .* bitlist) for (coeffs, bound) in
 		problem.upper_bounds]
     lower_bounds_totals = [sum(coeffs .* bitlist) for (coeffs, bound) in
