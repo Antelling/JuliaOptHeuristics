@@ -46,7 +46,7 @@ function parse_file(filename::String, dataset_num::Int, uid=0)
 				dataset_num,
 				instance_num,
 				i,
-				get_tightness(i),
+				get_tightness(instance_num),
 				length(cost_coefficient_values[i]),
 				length(lower_bounds[1:q[i]]),
 				length(upper_bounds),
@@ -76,8 +76,8 @@ function parse_int(x)
     return parse(Int, x)
 end
 
-function get_tightness(case)
-	[.25, .5, .75][Int(ceil(case/5))]
+function get_tightness(instance)
+	[.25, .5, .75][Int(ceil(instance/5))]
 end
 
 function is_mixed(case)

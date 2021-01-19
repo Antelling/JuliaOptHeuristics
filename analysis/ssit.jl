@@ -22,7 +22,10 @@ feasible_df = df |> @filter(_.infeasibility == 0 && _.dataset > 4) |> DataFrame
 infeasible_df = df |> @filter(_.infeasibility > 0 && _.dataset > 4) |> DataFrame
 
 names(feasible_df)
-by(feasible_df, :lowest_gap, :case=>mean)
+summary_stats = combine(
+    groupby(feasible_df, :method_name),
+    :lowest_gap=>mean,
+    :total_time=>mean)
 
 xticks = [.005, .05, .25, .5, .75]
 p = plot(feasible_df, x="lowest_gap", y="total_time",

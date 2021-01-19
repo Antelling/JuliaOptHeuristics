@@ -1,4 +1,5 @@
 using DataFrames
+using Random
 using XLSX
 using StructArrays
 using StatsBase
@@ -68,14 +69,14 @@ end
 ExperimentResults() = ExperimentResults([], [], [])
 
 function generate_comparison_data(
-		problems::Vector{T},
 		methods::Vector{JOH.Matheur.SSIT.SSIT_method},
+		problem_groups::AbstractArray{AbstractArray{T}},
 		experiment::ExperimentResults) where T <: JOH.Problem
 
-	for problem in problems
-		push!(experiment.problem_ids, problem.id)
+	for (method, problem_group) in zip(methods, problem_groups)
+		for problem in problem_group
+			push!(experiment.problem_ids, problem.id)
 
-		for method in methods
 			model = MDMKP.create_MIPS_model(problem)
 			ssit_phases = JOH.Matheur.evaluate(model, method)
 			ssit_phases[!, :method] .= method.name
@@ -97,16 +98,35 @@ function ba_rep(ba)
 	join([b == 1 ? "1" : "0" for b in ba], "")
 end
 
+function split_problems(problems; n_groups=5, datasets=1:9, tightnesses=[.25, .5, .75],
+			cases=1:6)::Vector{Vector{JOH.Problem}}
+	groups = [[] for _ in 1:n_groups]
+	for dataset in datasets
+		for tightness in tightnesses
+			for case in cases
+				random_assignment_order = shuffle(collect(1:n_groups))
+				subset = filter(x->x.id.tightness==tightness
+					&& x.id.dataset==dataset
+					&& x.id.case==case, problems)
+				for i in random_assignment_order
+					push!(groups[i], subset[i])
+				end
+			end
+		end
+	end
+	groups
+end
 
 all_problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods()
+ssit_methods = make_SSIT_methods(.1)
 
-for dataset in 9:-1:1
-	problems = filter(x->x.id.dataset==dataset, problems)
+function record_dataset(datasets=1:9)
+	problems = filter(x->x.id.dataset in datasets, all_problems)
+	problem_groups = split_problems(problems, datasets=datasets)
 
 	experiment = ExperimentResults()
 	data = generate_comparison_data(
-		problems, ssit_methods, experiment)
+		ssit_methods, problem_groups, experiment)
 
 	pids = DataFrame(StructArray(data.problem_ids))
 	pms = DataFrame(StructArray(data.method_problem_results))
@@ -115,7 +135,6 @@ for dataset in 9:-1:1
 	df = select(df, Not(:id))
 	ssit_phases = vcat(experiment.SSIT_phases...)
 	ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
-
 
 	XLSX.writetable(
 		"$(dataset)_report.xlsx",
@@ -128,4 +147,10 @@ for dataset in 9:-1:1
 			collect(DataFrames.eachcol(pids)),
 			DataFrames.names(pids)),
 		overwrite=true)
+end
+
+record_dataset(1:9)
+
+for dataset in 9:-1:1
+	record_dataset(dataset)
 end
