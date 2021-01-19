@@ -70,7 +70,7 @@ ExperimentResults() = ExperimentResults([], [], [])
 
 function generate_comparison_data(
 		methods::Vector{JOH.Matheur.SSIT.SSIT_method},
-		problem_groups::AbstractArray{AbstractArray{T}},
+		problem_groups::Vector{Vector{T}},
 		experiment::ExperimentResults) where T <: JOH.Problem
 
 	for (method, problem_group) in zip(methods, problem_groups)
@@ -108,8 +108,10 @@ function split_problems(problems; n_groups=5, datasets=1:9, tightnesses=[.25, .5
 				subset = filter(x->x.id.tightness==tightness
 					&& x.id.dataset==dataset
 					&& x.id.case==case, problems)
+				j = 1
 				for i in random_assignment_order
-					push!(groups[i], subset[i])
+					push!(groups[i], subset[j])
+					j += 1
 				end
 			end
 		end
@@ -118,9 +120,9 @@ function split_problems(problems; n_groups=5, datasets=1:9, tightnesses=[.25, .5
 end
 
 all_problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(.1)
+ssit_methods = make_SSIT_methods(.005)
 
-function record_dataset(datasets=1:9)
+function record_dataset(datasets=1:9, filename)
 	problems = filter(x->x.id.dataset in datasets, all_problems)
 	problem_groups = split_problems(problems, datasets=datasets)
 
@@ -137,7 +139,7 @@ function record_dataset(datasets=1:9)
 	ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
 
 	XLSX.writetable(
-		"$(dataset)_report.xlsx",
+		"$filename.xlsx",
 		method_problem_results = (
 			collect(DataFrames.eachcol(df)),
 			DataFrames.names(df)),
@@ -149,8 +151,5 @@ function record_dataset(datasets=1:9)
 		overwrite=true)
 end
 
-record_dataset(1:9)
-
-for dataset in 9:-1:1
-	record_dataset(dataset)
-end
+record_dataset(5:9, "5_9")
+record_dataset(1:4, "1_4")
