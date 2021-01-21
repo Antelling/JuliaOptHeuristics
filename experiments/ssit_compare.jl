@@ -120,9 +120,9 @@ function split_problems(problems; n_groups=5, datasets=1:9, tightnesses=[.25, .5
 end
 
 all_problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(.005)
+ssit_methods = make_SSIT_methods()
 
-function record_dataset(datasets=1:9, filename)
+function record_dataset(datasets, filename)
 	problems = filter(x->x.id.dataset in datasets, all_problems)
 	problem_groups = split_problems(problems, datasets=datasets)
 
@@ -151,5 +151,6 @@ function record_dataset(datasets=1:9, filename)
 		overwrite=true)
 end
 
-record_dataset(5:9, "5_9")
-record_dataset(1:4, "1_4")
+record_dataset(7:9, "7_9")
+record_dataset(4:6, "4_6")
+record_dataset(1:3, "1_3")
