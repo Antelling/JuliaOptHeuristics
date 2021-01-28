@@ -3,13 +3,14 @@ using Random
 using XLSX
 using StructArrays
 using StatsBase
+using CSV
 
 include("../src/JOH.jl")
 include("../MDMKP/MDMKP.jl")
 
 """ create a variety of SSIT methods. Accept a parameter to multiply each time
 limit by. """
-function make_SSIT_methods(m=60; n_threads=8)
+function make_SSIT_methods(m=60; n_threads=6)
     [
         JOH.Matheur.SSIT.make_SSIT_method(
 			[.001, .005, .01, .02, .05],
@@ -68,30 +69,71 @@ end
 
 ExperimentResults() = ExperimentResults([], [], [])
 
+function flatten_ssit(df::DataFrame, tolerances)
+	times = []
+	gaps = []
+
+	n_rows = length(df[!, 1])
+
+	for i in 1:n_rows
+		push!(times, df[i, :][:elapsed_time])
+		push!(gaps, df[i, :][:gap])
+	end
+
+	flat_df = DataFrame()
+	for i in 1:n_rows
+		flat_df[!, Symbol("$(tolerances[i])_time")] = [times[i]]
+		flat_df[!, Symbol("$(tolerances[i])_gap")] = [gaps[i]]
+	end
+	flat_df[!, :termination] = [last(df)[:term_stat]]
+	flat_df[!, :objective] = [last(df)[:term_stat]]
+	flat_df[!, :infeasibility] = [last(df)[:term_stat]]
+	flat_df
+end
+
+function include_aux_data(df::DataFrame, method, problem_id)
+	df[!, :method] .= method.name
+	for field in fieldnames(typeof(problem_id))
+		val = getfield(problem_id, field)
+		df[!, Symbol("problem_$(field)")] = [val]
+	end
+	df
+end
+
+function include_sol_data(df, ssit_phases, solution_constructor, problem)
+	lp = last(ssit_phases, 1)
+	solution = solution_constructor(lp[!, :bitarr][1], problem)
+	df[!, :objective] = [solution.objective]
+	df[!, :infeasibility] = [solution.infeasibility]
+	df
+end
+
+function summarize_ssit(ssit_phases::DataFrame, method, problem, solution)
+	df = include_aux_data(flatten_ssit(ssit_phases, method.tolerances),
+		method, problem.id)
+	df = include_sol_data(df, ssit_phases, solution, problem)
+	df
+end
+
 function generate_comparison_data(
 		methods::Vector{JOH.Matheur.SSIT.SSIT_method},
 		problem_groups::Vector{Vector{T}},
-		experiment::ExperimentResults) where T <: JOH.Problem
+		solution; results_dir="results") where T <: JOH.Problem
 
+	results = []
+	index = 1
 	for (method, problem_group) in zip(methods, problem_groups)
 		for problem in problem_group
-			push!(experiment.problem_ids, problem.id)
-
 			model = MDMKP.create_MIPS_model(problem)
 			ssit_phases = JOH.Matheur.evaluate(model, method)
-			ssit_phases[!, :method] .= method.name
-			ssit_phases[!, :problem_id] .= problem.id.id
+			result_df = summarize_ssit(ssit_phases, method, problem, solution)
+			CSV.write("$(results_dir)/$(index).csv", result_df)
+			index += 1
 
-			push!(experiment.SSIT_phases, ssit_phases)
-			lp = last(ssit_phases, 1)
-			solution = MDMKP.MDMKP_Sol(lp[!, :bitarr][1], problem)
-
-			method_problem_result = MethodProblemResult(method, problem,
-				solution, lp)
-			push!(experiment.method_problem_results, method_problem_result)
+			push!(results, result_df)
 		end
 	end
-	experiment
+	results
 end
 
 function ba_rep(ba)
@@ -119,37 +161,15 @@ function split_problems(problems; n_groups=5, datasets=1:9, tightnesses=[.25, .5
 	groups
 end
 
-all_problems = MDMKP.load_folder()
-ssit_methods = make_SSIT_methods(.005)
-
-function record_dataset(datasets=1:9, filename)
-	problems = filter(x->x.id.dataset in datasets, all_problems)
+function record_dataset(datasets, methods, problems, solution, results_dir="results")
+	problems = filter(x->x.id.dataset in datasets, problems)
 	problem_groups = split_problems(problems, datasets=datasets)
 
-	experiment = ExperimentResults()
-	data = generate_comparison_data(
-		ssit_methods, problem_groups, experiment)
-
-	pids = DataFrame(StructArray(data.problem_ids))
-	pms = DataFrame(StructArray(data.method_problem_results))
-	pms[!, :id] = pms[!, :problem_id]
-	df = innerjoin(pids, pms, on=:id)
-	df = select(df, Not(:id))
-	ssit_phases = vcat(experiment.SSIT_phases...)
-	ssit_phases[!, :bitarr] = map(ba_rep, ssit_phases[!, :bitarr])
-
-	XLSX.writetable(
-		"$filename.xlsx",
-		method_problem_results = (
-			collect(DataFrames.eachcol(df)),
-			DataFrames.names(df)),
-		ssit_phases = ( collect(DataFrames.eachcol(ssit_phases)),
-			DataFrames.names(ssit_phases) ),
-		problem_id_info = (
-			collect(DataFrames.eachcol(pids)),
-			DataFrames.names(pids)),
-		overwrite=true)
+	generate_comparison_data(methods, problem_groups, solution, results_dir=results_dir)
 end
 
-record_dataset(5:9, "5_9")
-record_dataset(1:4, "1_4")
+all_problems = MDMKP.load_folder()
+ssit_methods = make_SSIT_methods()
+
+
+data = record_dataset(1:9, ssit_methods, all_problems, MDMKP.MDMKP_Sol, "results/Jan28_trial")
