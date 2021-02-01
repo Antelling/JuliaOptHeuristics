@@ -82,12 +82,11 @@ function flatten_ssit(df::DataFrame, tolerances)
 
 	flat_df = DataFrame()
 	for i in 1:n_rows
-		flat_df[!, Symbol("$(tolerances[i])_time")] = [times[i]]
-		flat_df[!, Symbol("$(tolerances[i])_gap")] = [gaps[i]]
+		flat_df[!, Symbol("phase $i time")] = [times[i]]
+		flat_df[!, Symbol("phase $i gap")] = [gaps[i]]
 	end
 	flat_df[!, :termination] = [last(df)[:term_stat]]
-	flat_df[!, :objective] = [last(df)[:term_stat]]
-	flat_df[!, :infeasibility] = [last(df)[:term_stat]]
+	flat_df[!, :lowest_gap] = [last(df)[:gap]]
 	flat_df
 end
 
@@ -105,6 +104,7 @@ function include_sol_data(df, ssit_phases, solution_constructor, problem)
 	solution = solution_constructor(lp[!, :bitarr][1], problem)
 	df[!, :objective] = [solution.objective]
 	df[!, :infeasibility] = [solution.infeasibility]
+	df[!, :solution] = [solution.value]
 	df
 end
 
@@ -171,5 +171,6 @@ end
 all_problems = MDMKP.load_folder()
 ssit_methods = make_SSIT_methods()
 
-
-data = record_dataset(1:9, ssit_methods, all_problems, MDMKP.MDMKP_Sol, "results/Jan28_trial")
+res_dir = "results/Feb1"
+mkdir(res_dir)
+data = record_dataset(1:9, ssit_methods, all_problems, MDMKP.MDMKP_Sol, res_dir)
