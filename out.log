@@ -1,262 +1,900 @@
 
-Lift and project cuts applied:  1
-Gomory fractional cuts applied:  5
+Cover cuts applied:  71
+Lift and project cuts applied:  4
+Gomory fractional cuts applied:  2
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.06 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  301.45 sec. (30965.21 ticks)
-  Sync time (average)   =   87.43 sec.
-  Wait time (average)   =    0.00 sec.
+  Real time             =    0.13 sec. (31.84 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   16.11 sec. (5772.81 ticks)
+  Sync time (average)   =    5.00 sec.
+  Wait time (average)   =    0.01 sec.
                           ------------
-Total (root+branch&cut) =  301.45 sec. (30965.27 ticks)
-Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
-CPXPARAM_TimeLimit                               300
-CPXPARAM_MIP_Tolerances_MIPGap                   0.01
+Total (root+branch&cut) =   16.24 sec. (5804.64 ticks)
 
-Root node processing (before b&c):
-  Real time             =    0.16 sec. (0.04 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.54 sec. (3.98 ticks)
-  Sync time (average)   =    0.00 sec.
-  Wait time (average)   =    0.00 sec.
-                          ------------
-Total (root+branch&cut) =    0.70 sec. (4.02 ticks)
-
-Lift and project cuts applied:  1
+Cover cuts applied:  11
+Mixed integer rounding cuts applied:  19
+Zero-half cuts applied:  4
 Gomory fractional cuts applied:  3
 
 Root node processing (before b&c):
-  Real time             =    0.33 sec. (143.33 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  305.78 sec. (186189.20 ticks)
-  Sync time (average)   =  104.32 sec.
-  Wait time (average)   =    0.09 sec.
+  Real time             =    0.23 sec. (39.82 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.57 sec. (110367.25 ticks)
+  Sync time (average)   =  119.08 sec.
+  Wait time (average)   =    0.25 sec.
                           ------------
-Total (root+branch&cut) =  306.11 sec. (186332.53 ticks)
+Total (root+branch&cut) =  304.80 sec. (110407.07 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.10 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.11 sec. (6.49 ticks)
+  Real time             =    0.00 sec. (0.05 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.10 sec. (5.60 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.11 sec. (6.59 ticks)
+Total (root+branch&cut) =    0.10 sec. (5.65 ticks)
 
-Mixed integer rounding cuts applied:  1
-Lift and project cuts applied:  1
+Lift and project cuts applied:  7
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  307.44 sec. (177086.46 ticks)
+  Sync time (average)   =  214.95 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  307.44 sec. (177086.51 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.01
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.04 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.57 sec. (7.66 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.57 sec. (7.70 ticks)
+
+Mixed integer rounding cuts applied:  10
+Zero-half cuts applied:  4
+Lift and project cuts applied:  3
 Gomory fractional cuts applied:  1
 
 Root node processing (before b&c):
-  Real time             =    0.18 sec. (56.03 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  304.23 sec. (125558.72 ticks)
-  Sync time (average)   =  127.65 sec.
-  Wait time (average)   =    0.15 sec.
+  Real time             =    0.17 sec. (46.42 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  307.88 sec. (322607.49 ticks)
+  Sync time (average)   =  143.66 sec.
+  Wait time (average)   =    0.18 sec.
                           ------------
-Total (root+branch&cut) =  304.41 sec. (125614.76 ticks)
+Total (root+branch&cut) =  308.05 sec. (322653.92 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
 
 Root node processing (before b&c):
   Real time             =    0.00 sec. (0.07 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.10 sec. (7.13 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.09 sec. (6.95 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.10 sec. (7.20 ticks)
+Total (root+branch&cut) =    0.09 sec. (7.02 ticks)
 
-Lift and project cuts applied:  7
-Gomory fractional cuts applied:  2
-
-Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.08 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  301.92 sec. (87812.89 ticks)
-  Sync time (average)   =  179.60 sec.
-  Wait time (average)   =    0.00 sec.
-                          ------------
-Total (root+branch&cut) =  301.92 sec. (87812.97 ticks)
-
-Lift and project cuts applied:  21
-
-Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.18 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  302.98 sec. (386662.91 ticks)
-  Sync time (average)   =  189.27 sec.
-  Wait time (average)   =    0.00 sec.
-                          ------------
-Total (root+branch&cut) =  302.99 sec. (386663.10 ticks)
-Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
-CPXPARAM_TimeLimit                               300
-CPXPARAM_MIP_Tolerances_MIPGap                   0.050000000000000003
-
-Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.12 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.11 sec. (6.39 ticks)
-  Sync time (average)   =    0.00 sec.
-  Wait time (average)   =    0.00 sec.
-                          ------------
-Total (root+branch&cut) =    0.11 sec. (6.52 ticks)
-
-Lift and project cuts applied:  11
+Mixed integer rounding cuts applied:  1
 Gomory fractional cuts applied:  3
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.18 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  302.44 sec. (117568.76 ticks)
-  Sync time (average)   =  174.18 sec.
-  Wait time (average)   =    0.00 sec.
+  Real time             =    0.23 sec. (82.62 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  303.51 sec. (170239.06 ticks)
+  Sync time (average)   =   98.86 sec.
+  Wait time (average)   =    0.11 sec.
                           ------------
-Total (root+branch&cut) =  302.45 sec. (117568.94 ticks)
+Total (root+branch&cut) =  303.74 sec. (170321.68 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
-CPXPARAM_MIP_Tolerances_MIPGap                   0.050000000000000003
+CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.12 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.15 sec. (8.81 ticks)
+  Real time             =    0.00 sec. (0.09 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.08 sec. (6.97 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.15 sec. (8.93 ticks)
+Total (root+branch&cut) =    0.08 sec. (7.06 ticks)
 
-Lift and project cuts applied:  7
-Gomory fractional cuts applied:  2
+Cover cuts applied:  51
+Mixed integer rounding cuts applied:  4
+Zero-half cuts applied:  3
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  1
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.28 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  309.93 sec. (143559.53 ticks)
-  Sync time (average)   =  217.44 sec.
+  Real time             =    0.16 sec. (32.35 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   35.50 sec. (12820.89 ticks)
+  Sync time (average)   =   10.46 sec.
+  Wait time (average)   =    0.02 sec.
+                          ------------
+Total (root+branch&cut) =   35.67 sec. (12853.24 ticks)
+
+Cover cuts applied:  58
+Mixed integer rounding cuts applied:  2
+Zero-half cuts applied:  2
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.08 sec. (12.31 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    5.42 sec. (2644.40 ticks)
+  Sync time (average)   =    0.98 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =    5.50 sec. (2656.71 ticks)
+
+Gomory fractional cuts applied:  6
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.45 sec. (69102.45 ticks)
+  Sync time (average)   =  213.29 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =  309.93 sec. (143559.81 ticks)
+Total (root+branch&cut) =  304.45 sec. (69102.52 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.02
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.19 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.06 sec. (3.50 ticks)
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.16 sec. (7.35 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.06 sec. (3.69 ticks)
+Total (root+branch&cut) =    0.16 sec. (7.41 ticks)
+
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.04 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  303.88 sec. (253645.89 ticks)
+  Sync time (average)   =  207.66 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  303.88 sec. (253645.93 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.01
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.03 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.15 sec. (7.59 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.15 sec. (7.62 ticks)
+
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.25 sec. (99.43 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  303.18 sec. (162928.37 ticks)
+  Sync time (average)   =   98.77 sec.
+  Wait time (average)   =    0.11 sec.
+                          ------------
+Total (root+branch&cut) =  303.43 sec. (163027.80 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.05 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.11 sec. (6.75 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.11 sec. (6.80 ticks)
+
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.32 sec. (125.92 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.29 sec. (176040.23 ticks)
+  Sync time (average)   =   95.36 sec.
+  Wait time (average)   =    0.10 sec.
+                          ------------
+Total (root+branch&cut) =  304.61 sec. (176166.14 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.10 sec. (6.81 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.10 sec. (6.88 ticks)
+
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.25 sec. (75.01 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   34.12 sec. (27315.27 ticks)
+  Sync time (average)   =    3.54 sec.
+  Wait time (average)   =    0.02 sec.
+                          ------------
+Total (root+branch&cut) =   34.37 sec. (27390.28 ticks)
+
+Cover cuts applied:  32
+Mixed integer rounding cuts applied:  120
+Zero-half cuts applied:  2
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  139.04 sec. (113779.78 ticks)
+  Sync time (average)   =   17.38 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  139.04 sec. (113779.84 ticks)
+
+Mixed integer rounding cuts applied:  1
+Lift and project cuts applied:  3
+Gomory fractional cuts applied:  5
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.08 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.59 sec. (117462.64 ticks)
+  Sync time (average)   =  151.57 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.59 sec. (117462.72 ticks)
+
+Cover cuts applied:  2
+Mixed integer rounding cuts applied:  1
+Lift and project cuts applied:  15
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.80 sec. (128257.64 ticks)
+  Sync time (average)   =  146.02 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.80 sec. (128257.71 ticks)
+
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.08 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.20 sec. (779081.30 ticks)
+  Sync time (average)   =  174.55 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.20 sec. (779081.38 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.02
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.05 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.29 sec. (14.07 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.29 sec. (14.12 ticks)
+
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.33 sec. (117.71 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  299.68 sec. (294445.33 ticks)
+  Sync time (average)   =   42.26 sec.
+  Wait time (average)   =    0.08 sec.
+                          ------------
+Total (root+branch&cut) =  300.01 sec. (294563.04 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.30 sec. (5.90 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.30 sec. (5.95 ticks)
+
+Lift and project cuts applied:  21
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.15 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.65 sec. (133943.82 ticks)
+  Sync time (average)   =  152.63 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.65 sec. (133943.97 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.050000000000000003
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.09 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.13 sec. (6.43 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.14 sec. (6.52 ticks)
 
 Lift and project cuts applied:  7
 Gomory fractional cuts applied:  4
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.21 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  309.32 sec. (471536.96 ticks)
-  Sync time (average)   =  226.47 sec.
+  Real time             =    0.00 sec. (0.25 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  310.38 sec. (283133.92 ticks)
+  Sync time (average)   =  204.49 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =  309.32 sec. (471537.17 ticks)
+Total (root+branch&cut) =  310.39 sec. (283134.17 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.050000000000000003
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.12 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.06 sec. (3.45 ticks)
+  Real time             =    0.00 sec. (0.16 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.13 sec. (3.89 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.06 sec. (3.57 ticks)
+Total (root+branch&cut) =    0.13 sec. (4.05 ticks)
 
-Lift and project cuts applied:  6
+Lift and project cuts applied:  8
 Gomory fractional cuts applied:  1
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.34 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  306.32 sec. (154642.60 ticks)
-  Sync time (average)   =  213.03 sec.
+  Real time             =    0.00 sec. (0.33 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  307.42 sec. (153268.52 ticks)
+  Sync time (average)   =  170.18 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =  306.32 sec. (154642.94 ticks)
+Total (root+branch&cut) =  307.43 sec. (153268.85 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
-CPXPARAM_MIP_Tolerances_MIPGap                   0.02
+CPXPARAM_MIP_Tolerances_MIPGap                   0.01
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.26 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.08 sec. (3.57 ticks)
+  Real time             =    0.00 sec. (0.25 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.06 sec. (4.22 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.08 sec. (3.84 ticks)
+Total (root+branch&cut) =    0.06 sec. (4.47 ticks)
 
-Lift and project cuts applied:  5
+Lift and project cuts applied:  7
 Gomory fractional cuts applied:  2
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.27 ticks)
-Parallel b&c, 8 threads:
-  Real time             = 1084.88 sec. (4217390.50 ticks)
-  Sync time (average)   =  507.28 sec.
+  Real time             =    0.00 sec. (0.25 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  308.50 sec. (398186.30 ticks)
+  Sync time (average)   =  200.26 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) = 1084.88 sec. (4217390.77 ticks)
+Total (root+branch&cut) =  308.50 sec. (398186.55 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.050000000000000003
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.19 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.08 sec. (3.98 ticks)
+  Real time             =    0.00 sec. (0.16 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.04 sec. (3.49 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.08 sec. (4.17 ticks)
+Total (root+branch&cut) =    0.04 sec. (3.66 ticks)
 
 Lift and project cuts applied:  7
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.31 ticks)
+Parallel b&c, 6 threads:
+  Real time             = 1176.15 sec. (5101317.64 ticks)
+  Sync time (average)   =  689.03 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) = 1176.15 sec. (5101317.95 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.01
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.23 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.07 sec. (3.99 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.07 sec. (4.22 ticks)
+
+Cover cuts applied:  57
+Mixed integer rounding cuts applied:  1
+Lift and project cuts applied:  5
+Gomory fractional cuts applied:  7
+
+Root node processing (before b&c):
+  Real time             =    0.16 sec. (25.12 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   29.98 sec. (10811.02 ticks)
+  Sync time (average)   =    8.62 sec.
+  Wait time (average)   =    0.02 sec.
+                          ------------
+Total (root+branch&cut) =   30.14 sec. (10836.14 ticks)
+
+Cover cuts applied:  1
+Mixed integer rounding cuts applied:  31
+Zero-half cuts applied:  5
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.13 sec. (25.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   16.99 sec. (8361.04 ticks)
+  Sync time (average)   =    2.54 sec.
+  Wait time (average)   =    0.03 sec.
+                          ------------
+Total (root+branch&cut) =   17.12 sec. (8386.10 ticks)
+
+Cover cuts applied:  1
+Mixed integer rounding cuts applied:  2
+Zero-half cuts applied:  3
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.10 sec. (16.75 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    8.73 sec. (4275.00 ticks)
+  Sync time (average)   =    1.19 sec.
+  Wait time (average)   =    0.02 sec.
+                          ------------
+Total (root+branch&cut) =    8.83 sec. (4291.75 ticks)
+
+Cover cuts applied:  1
+Mixed integer rounding cuts applied:  2
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.16 sec. (30.80 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.89 sec. (457.24 ticks)
+  Sync time (average)   =    0.20 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    1.05 sec. (488.03 ticks)
+
+Cover cuts applied:  73
+Mixed integer rounding cuts applied:  1
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.20 sec. (25.66 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   18.30 sec. (7213.54 ticks)
+  Sync time (average)   =    4.88 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   18.50 sec. (7239.20 ticks)
+
+Cover cuts applied:  66
+Zero-half cuts applied:  3
 Gomory fractional cuts applied:  3
 
 Root node processing (before b&c):
-  Real time             =    0.42 sec. (239.68 ticks)
-Parallel b&c, 8 threads:
-  Real time             =  305.46 sec. (281039.07 ticks)
-  Sync time (average)   =   89.98 sec.
-  Wait time (average)   =    0.03 sec.
+  Real time             =    0.13 sec. (20.90 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   10.51 sec. (4689.17 ticks)
+  Sync time (average)   =    2.61 sec.
+  Wait time (average)   =    0.01 sec.
                           ------------
-Total (root+branch&cut) =  305.88 sec. (281278.75 ticks)
+Total (root+branch&cut) =   10.64 sec. (4710.08 ticks)
+
+Mixed integer rounding cuts applied:  1
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  303.79 sec. (74657.06 ticks)
+  Sync time (average)   =  214.58 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  303.79 sec. (74657.13 ticks)
+
+Gomory fractional cuts applied:  5
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.07 sec. (44866.57 ticks)
+  Sync time (average)   =  205.48 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.07 sec. (44866.62 ticks)
+
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.12 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.44 sec. (40135.29 ticks)
+  Sync time (average)   =  208.57 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.44 sec. (40135.41 ticks)
+
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.16 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.85 sec. (55226.06 ticks)
+  Sync time (average)   =  211.28 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.85 sec. (55226.22 ticks)
+
+Lift and project cuts applied:  6
+Gomory fractional cuts applied:  5
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.13 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  308.90 sec. (91102.21 ticks)
+  Sync time (average)   =  197.56 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  308.91 sec. (91102.34 ticks)
+
+Cover cuts applied:  160
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.18 sec. (67.83 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  164.71 sec. (97355.23 ticks)
+  Sync time (average)   =   40.31 sec.
+  Wait time (average)   =    0.05 sec.
+                          ------------
+Total (root+branch&cut) =  164.89 sec. (97423.06 ticks)
+
+Lift and project cuts applied:  13
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.65 sec. (114349.87 ticks)
+  Sync time (average)   =  155.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.65 sec. (114349.94 ticks)
+
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.06 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  302.38 sec. (426723.63 ticks)
+  Sync time (average)   =  164.86 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  302.38 sec. (426723.69 ticks)
+
+Lift and project cuts applied:  12
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.13 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.87 sec. (141356.52 ticks)
+  Sync time (average)   =  158.38 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.87 sec. (141356.65 ticks)
+
+Lift and project cuts applied:  16
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.17 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  620.78 sec. (2478950.12 ticks)
+  Sync time (average)   =  402.87 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  620.80 sec. (2478950.29 ticks)
+
+Lift and project cuts applied:  4
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.18 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  320.52 sec. (199388.11 ticks)
+  Sync time (average)   =  210.11 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  320.52 sec. (199388.29 ticks)
+
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.12 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  305.40 sec. (72175.96 ticks)
+  Sync time (average)   =  199.06 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  305.40 sec. (72176.08 ticks)
+
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.12 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  310.87 sec. (89768.81 ticks)
+  Sync time (average)   =  210.35 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  310.88 sec. (89768.92 ticks)
+
+Lift and project cuts applied:  12
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.33 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.67 sec. (212219.77 ticks)
+  Sync time (average)   =  131.77 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.67 sec. (212220.10 ticks)
+
+Lift and project cuts applied:  20
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.36 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.74 sec. (195926.90 ticks)
+  Sync time (average)   =  126.91 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.74 sec. (195927.26 ticks)
+
+Lift and project cuts applied:  18
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.31 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.86 sec. (196623.00 ticks)
+  Sync time (average)   =  131.88 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.86 sec. (196623.31 ticks)
+
+Cover cuts applied:  28
+Mixed integer rounding cuts applied:  2
+Zero-half cuts applied:  2
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.08 sec. (9.34 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    7.81 sec. (2425.87 ticks)
+  Sync time (average)   =    1.99 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =    7.89 sec. (2435.21 ticks)
+
+Cover cuts applied:  2
+Mixed integer rounding cuts applied:  45
+Zero-half cuts applied:  2
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.11 sec. (18.60 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   21.03 sec. (10196.29 ticks)
+  Sync time (average)   =    3.14 sec.
+  Wait time (average)   =    0.04 sec.
+                          ------------
+Total (root+branch&cut) =   21.14 sec. (10214.89 ticks)
+
+Cover cuts applied:  11
+Mixed integer rounding cuts applied:  26
+Zero-half cuts applied:  15
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.11 sec. (27.31 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  164.66 sec. (102464.04 ticks)
+  Sync time (average)   =   36.61 sec.
+  Wait time (average)   =    0.10 sec.
+                          ------------
+Total (root+branch&cut) =  164.76 sec. (102491.35 ticks)
+
+Mixed integer rounding cuts applied:  2
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.24 sec. (64.18 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.79 sec. (400.23 ticks)
+  Sync time (average)   =    0.13 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    1.03 sec. (464.41 ticks)
+
+Cover cuts applied:  18
+Mixed integer rounding cuts applied:  4
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.27 sec. (59.85 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.26 sec. (123.86 ticks)
+  Sync time (average)   =    0.06 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.53 sec. (183.71 ticks)
+
+Cover cuts applied:  48
+Mixed integer rounding cuts applied:  11
+Zero-half cuts applied:  1
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    0.12 sec. (20.27 ticks)
+Parallel b&c, 6 threads:
+  Real time             =   17.96 sec. (6250.89 ticks)
+  Sync time (average)   =    5.39 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   18.08 sec. (6271.17 ticks)
+
+Lift and project cuts applied:  1
+Gomory fractional cuts applied:  6
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  304.52 sec. (42978.17 ticks)
+  Sync time (average)   =  209.74 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  304.52 sec. (42978.24 ticks)
+
+Zero-half cuts applied:  2
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.13 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  308.06 sec. (74771.40 ticks)
+  Sync time (average)   =  206.24 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  308.06 sec. (74771.53 ticks)
 Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
-CPXPARAM_Threads                                 8
+CPXPARAM_Threads                                 6
 CPXPARAM_TimeLimit                               300
 CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
 
 Root node processing (before b&c):
-  Real time             =    0.00 sec. (0.16 ticks)
-Parallel b&c, 8 threads:
-  Real time             =    0.07 sec. (3.46 ticks)
+  Real time             =    0.00 sec. (0.11 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.15 sec. (6.82 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.07 sec. (3.62 ticks)
+Total (root+branch&cut) =    0.15 sec. (6.93 ticks)
+
+Cover cuts applied:  1
+Zero-half cuts applied:  2
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.12 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  307.94 sec. (81833.05 ticks)
+  Sync time (average)   =  205.13 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  307.94 sec. (81833.17 ticks)
+Version identifier: 12.10.0.0 | 2019-11-26 | 843d4de
+CPXPARAM_Threads                                 6
+CPXPARAM_TimeLimit                               300
+CPXPARAM_MIP_Tolerances_MIPGap                   0.0050000000000000001
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.10 ticks)
+Parallel b&c, 6 threads:
+  Real time             =    0.08 sec. (6.68 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.08 sec. (6.78 ticks)
+
+Cover cuts applied:  119
+Mixed integer rounding cuts applied:  31
+Zero-half cuts applied:  1
+Lift and project cuts applied:  3
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.05 ticks)
+Parallel b&c, 6 threads:
+  Real time             =  301.52 sec. (848814.76 ticks)
+  Sync time (average)   =  177.15 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  301.53 sec. (848814.82 ticks)

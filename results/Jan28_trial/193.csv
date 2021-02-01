@@ -1,0 +1,2 @@
+0.001_time,0.001_gap,termination,objective,infeasibility,method,problem_id,problem_dataset,problem_instance,problem_case,problem_tightness,problem_n_vars,problem_n_demands,problem_n_dimensions,problem_mixed_obj
+8.836917877197266,0.0009999420078331083,OPTIMAL,199243,0,one tolerance,157,2,12,1,0.75,250,1,5,false

@@ -8,6 +8,7 @@ Pkg.add("Query")
 Pkg.add("Gadfly")
 Pkg.add("Cairo")
 Pkg.add("Fontconfig")
+Pkg.add("CSV")
 
 #cplex needs to be installed and pointed at the CPLEX installation directory
 #this will probably fail:
