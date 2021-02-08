@@ -61,21 +61,21 @@ function create_MIPS_model(problem::GAPProb;
 end
 
 
-problems = load_folder()
+# problems = load_folder()
 
-function ge(model, f)
-	try
-		f(model)
-	catch e
-		return -1 end
-end
-
-function run_model(problem)
-	m = create_MIPS_model(problem, time_limit=10)
-	JOH.Matheur.silent_optimize!(m)
-	(problem.id.name, m, ge(m, objective_value), ge(m, termination_status))
-end
-
-map(run_model, problems)
+# function ge(model, f)
+# 	try
+# 		f(model)
+# 	catch e
+# 		return -1 end
+# end
+#
+# function run_model(problem)
+# 	m = create_MIPS_model(problem, time_limit=10)
+# 	JOH.Matheur.silent_optimize!(m)
+# 	(problem.id.name, m, ge(m, objective_value), ge(m, termination_status))
+# end
+#
+# map(run_model, problems)
 
 end

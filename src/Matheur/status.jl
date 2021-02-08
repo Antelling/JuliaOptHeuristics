@@ -25,10 +25,14 @@ function get_DF_row(m::Model;
 	objective=0.0
 	gap = -1.0
 	try
-		bitarr = convert(BitArray, value.(m[:x]))
+		bitarr = convert(BitArray, round.(value.(m[:x])))
 		objective = objective_value(m)
 		gap = MOI.get(m, MOI.RelativeGap())
-	catch
+	catch e
+		sleep(.1)
+		bitarr = convert(BitArray, round.(value.(m[:x])))
+		objective = objective_value(m)
+		gap = MOI.get(m, MOI.RelativeGap())
 	end
 
 	rtol = get_optimizer_attribute(m, "CPXPARAM_MIP_Tolerances_MIPGap")
@@ -36,6 +40,7 @@ function get_DF_row(m::Model;
 	time_limit = get_optimizer_attribute(m, "CPXPARAM_TimeLimit")
 	solution_status = "$(primal_status(m))"
 	term_stat = "$(termination_status(m))"
+	objective = objective_value(m)
 
 	[bitarr, rtol, objective, solve_time, elapsed_time, time_limit,
 		solution_status, term_stat, gap, index]

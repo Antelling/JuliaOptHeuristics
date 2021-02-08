@@ -9,13 +9,10 @@ function load_dir(dir)
     res
 end
 
-pwd()
-length(readdir("./results/fast_trial/"))
-
-r = load_dir("results/fast_trial/")
+r = load_dir("results/Feb1/")
 df = vcat(r..., cols=:union)
 XLSX.writetable(
-		"fast.xlsx",
+		"Feb1.xlsx",
 		results = (
 			collect(DataFrames.eachcol(df)),
 			DataFrames.names(df)),
