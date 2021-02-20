@@ -10,10 +10,10 @@ ssit_method = JOH.Matheur.SSIT.make_SSIT_method(
 
 normal = JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001],
-			[25*60],
+			[60*60],
 			"normal cplex", 4)
 
-for (res_dir, optimizer) in [(ssit_method, "results/GAP_exp/ssit"),
+for (optimizer, res_dir) in [(ssit_method, "results/GAP_exp/ssit"),
 		(normal, "results/GAP_exp/norm")]
 
 	try
