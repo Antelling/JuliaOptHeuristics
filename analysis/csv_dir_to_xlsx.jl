@@ -12,7 +12,7 @@ end
 gap_compare_results = [("results/GAP_exp/ssit", "GAP_comp_ssit.xlsx"), ("results/GAP_exp/norm", "GAP_comp_norm.xlsx")]
 wtfc = [("results/cplexwhy/", "cplexwhy.xlsx")]
 
-for (d, n) in wtfc
+for (d, n) in gap_compare_results
 	r = load_dir(d)
 	df = vcat(r..., cols=:union)
 	XLSX.writetable(

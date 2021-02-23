@@ -126,13 +126,11 @@ function generate_comparison_data(
 		mips_model; results_dir="results") where T <: JOH.Problem
 
 	results = []
-	index = 0
 	for problem in problems
-		index += 1
 		model = mips_model(problem)
 		ssit_phases = JOH.Matheur.evaluate(model, method)
 		result_df = summarize_ssit(ssit_phases, method, problem, model)
-		CSV.write("$(results_dir)/$(index).csv", result_df)
+		CSV.write("$(results_dir)/$(problem.id.id).csv", result_df)
 
 		push!(results, result_df)
 	end
