@@ -1,2 +1,2 @@
 phase 1 time,phase 1 gap,phase 1 obj,termination,lowest_gap,method,problem_name,problem_dataset,problem_num_agents,problem_num_jobs,objective
-3608.7576129436493,0.0037641667689546853,24441.0,TIME_LIMIT,0.0037641667689546853,normal cplex,d 000400 40,d,40,400,24441.0
+3605.4233560562134,0.004375204448806894,24456.0,TIME_LIMIT,0.004375204448806894,normal cplex,d 000400 40,d,40,400,24456.0
