@@ -4,8 +4,8 @@ include("../GAP/GAP.jl")
 
 all_problems = GAP.load_folder()
 ssit_method = JOH.Matheur.SSIT.make_SSIT_method(
-			[.001, .004, .007, .01, .02],
-			[300,300,300,300,300],
+			[.0001,.001, .004, .007, .01, .02],
+			[150,150,300,300,300,300],
 			"gap ssit", 4)
 
 normal = JOH.Matheur.SSIT.make_SSIT_method(
