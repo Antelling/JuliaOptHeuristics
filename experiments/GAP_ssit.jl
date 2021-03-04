@@ -13,9 +13,7 @@ normal = JOH.Matheur.SSIT.make_SSIT_method(
 			[60*60],
 			"normal cplex", 4)
 
-for (optimizer, res_dir) in [(ssit_method, "results/GAP_exp/ssit"),
-		(normal, "results/GAP_exp/norm")]
-
+function run_trial(method, res_dir, all_problems)
 	try
 		mkdir(res_dir)
 	catch IOError
@@ -23,10 +21,16 @@ for (optimizer, res_dir) in [(ssit_method, "results/GAP_exp/ssit"),
 	end
 
 	#make sure everything is compiled
-	SE.generate_comparison_data(optimizer, all_problems[1:1],
+	SE.generate_comparison_data(method, all_problems[1:1],
 			GAP.create_MIPS_model, results_dir=res_dir)
 
 	#run experiment
-	data = SE.generate_comparison_data(optimizer, all_problems,
+	data = SE.generate_comparison_data(method, all_problems,
 			GAP.create_MIPS_model, results_dir=res_dir)
+	data
+end
+
+for (optimizer, res_dir) in [(ssit_method, "results/GAP_exp/ssit"),
+		(normal, "results/GAP_exp/norm")]
+	run_trial(optimizer, res_dir, all_problems)
 end
