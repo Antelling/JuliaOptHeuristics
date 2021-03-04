@@ -1,2 +1,0 @@
-phase 1 time,phase 1 gap,phase 2 time,phase 2 gap,termination,lowest_gap,method,problem_name,problem_dataset,problem_num_agents,problem_num_jobs,objective
-5.004478216171265,0.001155638557704188,0.002721071243286133,0.001155638557704188,OPTIMAL,0.001155638557704188,even time,d 000100 05,d,5,100,6357.0

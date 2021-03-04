@@ -1,2 +1,0 @@
-0.001_time,0.001_gap,0.005_time,0.005_gap,0.01_time,0.01_gap,0.02_time,0.02_gap,termination,objective,infeasibility,method,problem_id,problem_dataset,problem_instance,problem_case,problem_tightness,problem_n_vars,problem_n_demands,problem_n_dimensions,problem_mixed_obj
-300.0171182155609,0.01741074116176897,300.0117189884186,0.014558676520197853,301.10014486312866,0.014454495726443967,0.22055292129516602,0.014454495726443967,OPTIMAL,63455,0,even time,649,8,4,1,0.25,250,1,30,false
