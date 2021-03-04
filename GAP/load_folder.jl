@@ -33,7 +33,7 @@ function parse_file(d::Vector{Vector{Int}}, ds, id)
         agents_resource_cap)
 end
 
-function flat_parse_file(d::Vector{Int}, ds)
+function flat_parse_file(d::Vector{Int}, ds, id)
     i = 0
     function ni(l)
         i += 1
@@ -68,7 +68,7 @@ function flat_parse_file(d::Vector{Int}, ds)
 
     prep(l) = hcat(l...)
     GAPProb(
-        GAPID(ds, num_agents, num_jobs),
+        GAPID(id, ds, num_agents, num_jobs),
         prep(agent_job_costs),
         prep(agent_job_resources),
         agents_resource_cap)
@@ -76,15 +76,13 @@ end
 
 function load_folder(folder="GAP/benchmark_problems/")
     gaps = Vector{GAPProb}()
+    id = 0
     for file in readdir(folder)
+        id += 1
         dataset = file[1]
         data = read_file(joinpath(folder, file))
-        try
-            gap = flat_parse_file(vcat(data...), dataset)
-            push!(gaps, gap)
-        catch  DimensionMismatch
-            println("error loading $file")
-        end
+        gap = flat_parse_file(vcat(data...), dataset, id)
+        push!(gaps, gap)
     end
     sort(gaps, by=x->x.id.name)
 end

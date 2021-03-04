@@ -5,14 +5,15 @@ using JuMP #used to create the MOI model
 using CPLEX #used to provide the default optimizer
 
 struct GAPID <: JOH.ProblemID
+	id::Int
 	name::String
 	dataset::Char
 	num_agents::Int
 	num_jobs::Int
 end
 
-function GAPID(dataset::Char, num_agents::Int, num_jobs::Int)
-	GAPID("$dataset $(string(num_jobs, pad=6)) $(string(num_agents, pad=2))", dataset, num_agents, num_jobs)
+function GAPID(id::Int, dataset::Char, num_agents::Int, num_jobs::Int)
+	GAPID(id, "$dataset $(string(num_jobs, pad=6)) $(string(num_agents, pad=2))", dataset, num_agents, num_jobs)
 end
 
 struct GAPProb <: JOH.Problem
