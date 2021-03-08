@@ -1,2 +1,2 @@
-phase 1 time,phase 1 gap,phase 1 obj,phase 2 time,phase 2 gap,phase 2 obj,termination,lowest_gap,method,problem_name,problem_dataset,problem_num_agents,problem_num_jobs,objective
-304.35000801086426,0.0012933204289859999,54902.000000000946,0.04673504829406738,0.0012933204289859999,54902.000000000946,OPTIMAL,0.0012933204289859999,gap ssit,d 000900 30,d,30,900,54902.000000000946
+phase 1 time,phase 1 gap,phase 1 obj,phase 2 time,phase 2 gap,phase 2 obj,phase 3 time,phase 3 gap,phase 3 obj,termination,lowest_gap,method,problem_id,problem_name,problem_dataset,problem_num_agents,problem_num_jobs,objective
+150.07281613349915,0.001584603209389256,54918.000000000495,150.02318286895752,0.0015826176301664112,54918.000000000495,0.010751008987426758,0.0015826176301664112,54918.000000000495,OPTIMAL,0.0015826176301664112,gap ssit,32,d 000900 30,d,30,900,54918.000000000495
