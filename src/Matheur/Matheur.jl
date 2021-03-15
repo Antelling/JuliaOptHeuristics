@@ -7,8 +7,8 @@ export Matheuristic, evaluate, Model_DF, get_DF_row
 
 abstract type Matheuristic end
 
-function evaluate(model::Model, matheuristic::T) where {T<:Matheuristic}
-	matheuristic.executor(model, matheuristic)
+function evaluate(model::Model, matheuristic::T; id=1) where {T<:Matheuristic}
+	matheuristic.executor(model, matheuristic, id=id)
 end
 
 include("utils.jl")

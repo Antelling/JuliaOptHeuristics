@@ -125,7 +125,7 @@ function generate_comparison_data(
 	for (method, problem_group) in zip(methods, problem_groups)
 		for problem in problem_group
 			model = MDMKP.create_MIPS_model(problem)
-			ssit_phases = JOH.Matheur.evaluate(model, method)
+			ssit_phases = JOH.Matheur.evaluate(model, method, id=problem.id)
 			result_df = summarize_ssit(ssit_phases, method, problem, solution)
 			CSV.write("$(results_dir)/$(index).csv", result_df)
 			index += 1
@@ -171,6 +171,6 @@ end
 all_problems = MDMKP.load_folder()
 ssit_methods = make_SSIT_methods()
 
-res_dir = "results/Feb1"
+res_dir = "results/Mar14"
 mkpath(res_dir)
 data = record_dataset(1:9, ssit_methods, all_problems, MDMKP.MDMKP_Sol, res_dir)
