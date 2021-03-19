@@ -65,17 +65,18 @@ end
 all_problems = MDMKP.load_folder()
 errors = load_folder_info.(readdir("./error_log/"))
 
-function test_error(e::Error)
+function test_error(e::Error; mod=1)
     model = e.model
 	model[:x] = e.solution
 	JOH.Matheur.set_threads!(model, e.method.num_threads)
 
 	JOH.Matheur.set_tolerance!(model, e.method.tolerances[e.phase])
-	time_limit = e.method.times[e.phase]
+	time_limit = e.method.times[e.phase]/mod
 	JOH.Matheur.set_time!(model, time_limit)
 	elapsed_time = JOH.Matheur.silent_optimize!(model)
 	ratio = elapsed_time/time_limit
 	return (elapsed_time, ratio)
 end
 
+test_error(errors[1], mod=60)
 println(test_error.(errors))

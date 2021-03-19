@@ -171,6 +171,6 @@ end
 all_problems = MDMKP.load_folder()
 ssit_methods = make_SSIT_methods()
 
-res_dir = "results/Mar14"
+res_dir = "results/GurobiTest"
 mkpath(res_dir)
 data = record_dataset(1:9, ssit_methods, all_problems, MDMKP.MDMKP_Sol, res_dir)

@@ -35,9 +35,13 @@ function get_DF_row(m::Model;
 		gap = MOI.get(m, MOI.RelativeGap())
 	end
 
-	rtol = get_optimizer_attribute(m, "CPXPARAM_MIP_Tolerances_MIPGap")
+	att = is_gurobi(m) ? "MIPGap" : "CPXPARAM_MIP_Tolerances_MIPGap"
+	rtol = get_optimizer_attribute(m, att)
+
 	solve_time = MOI.get(m, MOI.SolveTime())
-	time_limit = get_optimizer_attribute(m, "CPXPARAM_TimeLimit")
+
+	att = is_gurobi(m) ? "TimeLimit" : "CPXPARAM_TimeLimit"
+	time_limit = get_optimizer_attribute(m, att)
 	solution_status = "$(primal_status(m))"
 	term_stat = "$(termination_status(m))"
 	objective = objective_value(m)
