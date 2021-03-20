@@ -1,0 +1,1 @@
+Main.JOH.Matheur.SSIT.SSIT_method(Number[0.001, 0.005, 0.01, 0.02, 0.05], Number[120, 240, 300, 360, 480], "increasing time", 6, Main.JOH.Matheur.SSIT.run_SSIT)
