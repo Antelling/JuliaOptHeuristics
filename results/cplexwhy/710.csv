@@ -1,2 +1,0 @@
-phase 1 time,phase 1 gap,phase 1 obj,phase 2 time,phase 2 gap,phase 2 obj,phase 3 time,phase 3 gap,phase 3 obj,termination,lowest_gap,method,problem_id,problem_dataset,problem_instance,problem_case,problem_tightness,problem_n_vars,problem_n_demands,problem_n_dimensions,problem_mixed_obj,objective
-120.01610279083252,0.010438366131507795,110664.0,240.01279997825623,0.010090093927346337,110664.0,221.4521129131317,0.009999987194303277,110664.0,OPTIMAL,0.009999987194303277,increasing time,710,8,14,2,0.75,250,15,30,false,110664.0
