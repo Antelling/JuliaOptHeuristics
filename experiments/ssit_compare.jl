@@ -4,6 +4,7 @@ using XLSX
 using StructArrays
 using StatsBase
 using CSV
+using CPLEX
 
 include("../src/JOH.jl")
 include("../MDMKP/MDMKP.jl")
@@ -124,7 +125,7 @@ function generate_comparison_data(
 	index = 1
 	for (method, problem_group) in zip(methods, problem_groups)
 		for problem in problem_group
-			model = MDMKP.create_MIPS_model(problem)
+			model = MDMKP.create_MIPS_model(problem, CPLEX.Optimizer)
 			ssit_phases = JOH.Matheur.evaluate(model, method, id=problem.id)
 			result_df = summarize_ssit(ssit_phases, method, problem, solution)
 			CSV.write("$(results_dir)/$(index).csv", result_df)
