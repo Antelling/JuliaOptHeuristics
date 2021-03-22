@@ -1,4 +1,4 @@
-is_gurobi(m) = true
+is_gurobi(m) = solver_name(m) == "Gurobi"
 
 """set the MIPGap parameter of the passed CPLEX model to the passed tolerance"""
 function set_tolerance!(model, tolerance)
@@ -54,5 +54,6 @@ function silent_optimize!(m)
 	start_time = time()
 	optimize!(m)
 	end_time = time()
+	GC.gc()
 	end_time - start_time
 end

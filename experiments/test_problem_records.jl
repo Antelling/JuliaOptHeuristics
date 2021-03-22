@@ -2,6 +2,9 @@ include("../src/JOH.jl")
 include("../MDMKP/MDMKP.jl")
 include("SSIT.jl")
 
+using Gurobi
+const Optimizer = Gurobi
+
 function extract_info(d)
     d1 = split(d, "(Number[")[2]
     d2 = split(d1, "], Number[")
@@ -49,7 +52,7 @@ function load_folder_info(filename)
         load_ssit_method(read(io, String))
     end
 
-    model = MDMKP.create_MIPS_model(problem)
+    model = MDMKP.create_MIPS_model(problem, Optimizer.Optimizer)
 
     solution = open(joinpath("./error_log/", filename, "solution.dat")) do io
         read(io, String)
@@ -78,5 +81,6 @@ function test_error(e::Error; mod=1)
 	return (elapsed_time, ratio)
 end
 
-test_error(errors[1], mod=60)
+test_error(errors[2], mod=60)
+
 println(test_error.(errors))

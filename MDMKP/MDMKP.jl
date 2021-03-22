@@ -91,8 +91,7 @@ end
 """Accept an MDMKP problem, and return a formulation that includes heavily
 penalized artificial variables to make the discovery of a feasibile solution
 trivial. """
-function create_MIPS_model(problem::MDMKP_Prob;
-		optimizer=Gurobi.Optimizer,
+function create_MIPS_model(problem::MDMKP_Prob, optimizer;
 		time_limit=20,
 		weight=1000,
 		num_threads=6)::Model
