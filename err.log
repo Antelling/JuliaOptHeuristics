@@ -1,0 +1,22 @@
+ERROR: LoadError: SystemError: opening file "results/Gurobi_test/156.csv": No space left on device
+Stacktrace:
+ [1] systemerror(::String, ::Int32; extrainfo::Nothing) at ./error.jl:168
+ [2] #systemerror#48 at ./error.jl:167 [inlined]
+ [3] systemerror at ./error.jl:167 [inlined]
+ [4] open(::String; lock::Bool, read::Nothing, write::Nothing, create::Nothing, truncate::Bool, append::Nothing) at ./iostream.jl:284
+ [5] open(::String, ::String; lock::Bool) at ./iostream.jl:346
+ [6] open(::String, ::String) at ./iostream.jl:346
+ [7] open(::CSV.var"#73#74"{CSV.var"#66#67"{Bool,Bool,Tables.Schema{(Symbol("phase 1 time"), Symbol("phase 1 gap"), Symbol("phase 2 time"), Symbol("phase 2 gap"), Symbol("phase 3 time"), Symbol("phase 3 gap"), Symbol("phase 4 time"), Symbol("phase 4 gap"), Symbol("phase 5 time"), Symbol("phase 5 gap"), :termination, :lowest_gap, :method, :problem_id, :problem_dataset, :problem_instance, :problem_case, :problem_tightness, :problem_n_vars, :problem_n_demands, :problem_n_dimensions, :problem_mixed_obj, :objective, :infeasibility, :solution),Tuple{Float64,Float64,Float64,Float64,Float64,Float64,Float64,Float64,Float64,Float64,String,Float64,String,Int64,Int64,Int64,Int64,Float64,Int64,Int64,Int64,Bool,Int64,Int64,BitArray{1}}},DataFrames.DataFrameRows{DataFrame,DataFrames.Index},CSV.Options{UInt8,UInt8,Nothing,Tuple{},CSV.var"#60#63"},NTuple{25,Symbol},Int64,Int64,Array{UInt8,1}}}, ::String, ::Vararg{String,N} where N; kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at ./io.jl:323
+ [8] open at ./io.jl:323 [inlined]
+ [9] with at /home/students.kutztown.edu/adell892/.julia/packages/CSV/la2cd/src/write.jl:278 [inlined]
+ [10] #write#65 at /home/students.kutztown.edu/adell892/.julia/packages/CSV/la2cd/src/write.jl:205 [inlined]
+ [11] write(::String, ::DataFrame; delim::Char, quotechar::Char, openquotechar::Nothing, closequotechar::Nothing, escapechar::Char, newline::Char, decimal::Char, dateformat::Nothing, quotestrings::Bool, missingstring::String, transform::CSV.var"#60#63", bom::Bool, append::Bool, writeheader::Nothing, partition::Bool, kwargs::Base.Iterators.Pairs{Union{},Union{},Tuple{},NamedTuple{(),Tuple{}}}) at /home/students.kutztown.edu/adell892/.julia/packages/CSV/la2cd/src/write.jl:191
+ [12] write at /home/students.kutztown.edu/adell892/.julia/packages/CSV/la2cd/src/write.jl:152 [inlined]
+ [13] generate_comparison_data(::Array{Main.JOH.Matheur.SSIT.SSIT_method,1}, ::Array{Array{Main.JOH.Problem,1},1}, ::Type{T} where T; results_dir::String) at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/ssit_compare.jl:131
+ [14] record_dataset(::UnitRange{Int64}, ::Array{Main.JOH.Matheur.SSIT.SSIT_method,1}, ::Array{Main.MDMKP.MDMKP_Prob,1}, ::Type{T} where T, ::String) at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/ssit_compare.jl:169
+ [15] top-level scope at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/ssit_compare.jl:177
+ [16] include(::Function, ::Module, ::String) at ./Base.jl:380
+ [17] include(::Module, ::String) at ./Base.jl:368
+ [18] exec_options(::Base.JLOptions) at ./client.jl:296
+ [19] _start() at ./client.jl:506
+in expression starting at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/ssit_compare.jl:177
