@@ -2,8 +2,6 @@ module MDMKP
 
 using Main.JOH #import abstract types
 using JuMP #used to create the MOI model
-using CPLEX #used to provide the default optimizer
-using Gurobi
 
 export MDMKP_Prob, MDMKP_Sol, load_folder, create_MIPS_model
 
