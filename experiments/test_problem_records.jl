@@ -2,8 +2,8 @@ include("../src/JOH.jl")
 include("../MDMKP/MDMKP.jl")
 include("SSIT.jl")
 
-using Gurobi
-const Optimizer = Gurobi
+using CPLEX
+const Optimizer = CPLEX
 
 function extract_info(d)
     d1 = split(d, "(Number[")[2]
@@ -83,4 +83,4 @@ end
 
 test_error(errors[2], mod=60)
 
-println(test_error.(errors))
+# println(test_error.(errors))
