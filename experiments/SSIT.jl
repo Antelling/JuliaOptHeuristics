@@ -180,14 +180,14 @@ function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 
 		m = read_from_file(m_path)
 		set_optimizer(m, optimizer) #now we know our results are reproducible
-		JOH.Matheur.set_threads!(method.num_threads)
+		JOH.Matheur.set_threads!(m, method.num_threads)
 		if solution != false
 			set_start_value.(all_variables(m), solution)
 		end
 
 		# run the optimization, and record the elapsed time
 		start_time = time()
-		optimize!(m)
+		optimize!(m) #-------------------------------------OPTIMIZE----------
 		end_time = time()
 		elapsed_time = end_time - start_time
 
