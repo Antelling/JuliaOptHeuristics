@@ -90,7 +90,7 @@ end
 
 
 all_problems = MDMKP.load_folder()
-methods = SE.make_SSIT_methods()
+methods = SE.make_SSIT_methods(num_threads=1)
 grouped_problems = split_problems(all_problems)
 
 # Juno.@enter record_experiment(methods, grouped_problems, "test")
