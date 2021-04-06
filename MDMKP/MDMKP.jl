@@ -94,8 +94,23 @@ function create_MIPS_model(problem::MDMKP_Prob, optimizer;
 		weight=1000,
 		num_threads=6)::Model
 	model = Model(optimizer)
+	_create_MIPS_model(problem, model, time_limit, weight, num_threads)
+end
+function create_MIPS_model(problem::MDMKP_Prob;
+		time_limit=20,
+		weight=1000,
+		num_threads=6)::Model
+	model = Model()
+	_create_MIPS_model(problem, model, time_limit, weight, num_threads)
+end
+function direct_model(problem::MDMKP_Prob, model;
+		time_limit=20,
+		weight=1000,
+		num_threads=6)::Model
+	_create_MIPS_model(problem, model, time_limit, weight, num_threads)
+end
 
-	#set cplex params
+function _create_MIPS_model(problem, model, time_limit, weight, num_threads)::Model
 	JOH.Matheur.set_threads!(model, num_threads)
 	JOH.Matheur.set_time!(model, time_limit)
 
