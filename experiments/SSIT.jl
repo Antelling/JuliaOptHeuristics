@@ -139,6 +139,29 @@ function generate_comparison_data(
 	results
 end
 
+function save_model(m, m_path, s_path)
+	write_to_file(m, m_path)
+	try
+		open(s_path, "w") do f
+			print(f, json(value.(all_variables(m))))
+		end
+	catch e
+		if !(isa(e, JuMP.OptimizeNotCalled))
+			rethrow()
+		end
+	end
+end
+
+function read_solution(s_path::String)
+	try
+		open(s_path, "r") do f
+			JSON.parse(read(f,String))
+		end
+	catch e
+		false
+	end
+end
+
 function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 		getdettime)
 	JOH.Matheur.set_threads!(m, method.num_threads)
@@ -148,46 +171,41 @@ function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 		phase_dir = joinpath(res_dir, "$(i)")
 		mkdir(phase_dir)
 
-		#update the model according to the SSIT phase parameters
-		JOH.Matheur.set_tolerance!(m, method.tolerances[i])
-		time_limit = method.times[i]
-		JOH.Matheur.set_time!(m, time_limit)
-
-		#save the model to a file, delete it, then load it from the file
+		#generate paths to data files
 		m_path, s_path, r_path = map(n->joinpath(phase_dir, n),
 			["model.mps", "start_sol.json", "results.json"])
-		write_to_file(m, m_path)
-		solution = false
-		try
-			open(s_path, "w") do f
-				solution = value.(all_variables(m))
-				print(f, json(solution))
-			end
-		catch e
-			if isa(e, JuMP.NoOptimizer)
-				println("NoOptimizer")
-			elseif isa(e, JuMP.OptimizeNotCalled)
-				println("OptimizeNotCalled")
-			else
-				rethrow()
-			end
-		end
 
+		#save the model and starting solution
+		save_model(m, m_path, s_path) #TODO: save the method and phase as well
 
-		#-----------------------------------------------------PIVOT-------------
+		temp_sol = try
+				open(s_path, "r") do f
+					JSON.parse(read(f,String))
+				end
+			catch e
+				false
+			end
+		println(temp_sol)
+
+		#delete the current model, then replace from the saved record
+		#this is to make starting from the saved files deterministic
 		m = nothing
-
-
 		m = read_from_file(m_path)
-		set_optimizer(m, optimizer) #now we know our results are reproducible
+		solution = read_solution(s_path)
+		set_optimizer(m, optimizer)
+
+		#update the model according to the SSIT phase parameters
+		JOH.Matheur.set_tolerance!(m, method.tolerances[i])
+		JOH.Matheur.set_time!(m, method.times[i])
 		JOH.Matheur.set_threads!(m, method.num_threads)
+
 		if solution != false
 			set_start_value.(all_variables(m), solution)
 		end
 
 		# run the optimization, and record the elapsed time
 		start_time = time()
-		optimize!(m) #-------------------------------------OPTIMIZE----------
+		optimize!(m)
 		end_time = time()
 		elapsed_time = end_time - start_time
 
@@ -197,6 +215,7 @@ function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 		row = JOH.Matheur.get_DF_row(m, elapsed_time=elapsed_time, index=i,
 			getdettime=getdettime)
 
+		GC.gc() #this doesn't always happen automatically
 
 		open(r_path, "w") do f
 			print(f, json(row))
@@ -215,7 +234,7 @@ function log_method_results(
 		mips_model, res_dir, optimizer, getdettime) where T <: JOH.Problem
 
 	rm(res_dir, force=true, recursive=true)
-	mkdir(res_dir)
+	mkpath(res_dir)
 
 	for problem in problems
 		problem_dir = joinpath(res_dir, "$(problem.id.id)")

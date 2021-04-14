@@ -74,26 +74,28 @@ function record_experiment(methods, grouped_problems, name,
 
 	for (method, problem_group) in zip(methods, grouped_problems)
 		dir = joinpath(res_dir, method.name)
+		compdir = joinpath(res_dir, ".junk", method.name)
 		#closure for solver equiped solver constructor
 		mmm(x) = MDMKP.create_MIPS_model(x, CPLEX.Optimizer)
 		#make sure everything is compiled
 		SE.log_method_results(method, all_problems[1:1],
-				mmm, dir, CPLEX.Optimizer, CPLEX.CPXgetdettime)
+				mmm, compdir, CPLEX.Optimizer, CPLEX.CPXgetdettime)
 
 		#long experiment
 		data = SE.log_method_results(method, problem_group,
-				MDMKP.create_MIPS_model, dir, CPLEX.Optimizer,
-				CPLEX.CPXgetdettime)
+				mmm, dir, CPLEX.Optimizer, CPLEX.CPXgetdettime)
+
 	end
 end
 
 
 
 all_problems = MDMKP.load_folder()
-methods = SE.make_SSIT_methods(n_threads=1)
+methods = SE.make_SSIT_methods(.1, n_threads=1)
 grouped_problems = split_problems(all_problems)
 
 # Juno.@enter record_experiment(methods, grouped_problems, "test")
 
-record_experiment(methods, grouped_problems, "test",
-	CPLEX.CPXgetdettime)
+record_experiment(methods, grouped_problems, "test", CPLEX.CPXgetdettime)
+
+Juno.@enter record_experiment(methods, grouped_problems, "test", CPLEX.CPXgetdettime)

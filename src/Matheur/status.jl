@@ -39,6 +39,8 @@ function get_DF_row(m::Model;
 		dettime_P = Ref{Float64}()
 		getdettime(env, dettime_P)
 		dettime = dettime_P[]
+		dettime_P = nothing
+		env = nothing
 	else
 		dettime = -1.0
 	end
