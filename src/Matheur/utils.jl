@@ -36,10 +36,11 @@ function silent_optimize_slow!(m)
 	tempout = stdout # save stream
 	start_time, end_time = 0, 0
 	try
-		redirect_stdout() # redirect to null
+		redirect_stdout(nothing) # redirect to null
 		start_time = time()
 		optimize!(m)
 		end_time = time()
+		GC.gc()
 		redirect_stdout(tempout)
 	catch e
 		#restore stream if user interrupts process, or other error

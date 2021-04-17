@@ -169,7 +169,7 @@ function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 	for i in 1:length(method.tolerances)
 		#create a directory to store this phase's information
 		phase_dir = joinpath(res_dir, "$(i)")
-		mkdir(phase_dir)
+		mkpath(phase_dir)
 
 		#generate paths to data files
 		m_path, s_path, r_path = map(n->joinpath(phase_dir, n),

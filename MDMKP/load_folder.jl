@@ -50,7 +50,8 @@ function parse_file(filename::String, dataset_num::Int, uid=0)
 				length(cost_coefficient_values[i]),
 				length(lower_bounds[1:q[i]]),
 				length(upper_bounds),
-				is_mixed(i)
+				is_mixed(i),
+				false
 			)
             push!(problems, MDMKP_Prob(
                 cost_coefficient_values[i],

@@ -15,6 +15,7 @@ struct Problem_ID <: JOH.ProblemID
 	n_demands::Int
 	n_dimensions::Int
 	mixed_obj::Bool
+	loosened::Bool
 end
 
 struct MDMKP_Prob <: JOH.Problem
@@ -33,6 +34,8 @@ struct MDMKP_Sol <: JOH.Solution
 end
 
 include("load_folder.jl")
+
+include("decision_tree.jl")
 
 """Select slices of MDMKP problems"""
 function slice_select(problems::Vector{MDMKP_Prob};
