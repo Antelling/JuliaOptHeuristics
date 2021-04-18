@@ -1,4 +1,4 @@
-function loosen(problem)
+function loosen(problem; id_increment=1000)
     new_lower_bounds = []
     for lb in problem.lower_bounds
         new_lb = convert(Int, floor(lb[2] * .1))
@@ -7,7 +7,7 @@ function loosen(problem)
 
     MDMKP.MDMKP_Prob(problem.objective, problem.upper_bounds, new_lower_bounds,
         MDMKP.Problem_ID(
-            problem.id.id,
+            problem.id.id + id_increment,
             problem.id.dataset,
             problem.id.instance,
             problem.id.case,
