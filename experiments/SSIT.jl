@@ -178,15 +178,6 @@ function log_ssit_run(m::JuMP.Model, method, res_dir::String, optimizer,
 		#save the model and starting solution
 		save_model(m, m_path, s_path) #TODO: save the method and phase as well
 
-		temp_sol = try
-				open(s_path, "r") do f
-					JSON.parse(read(f,String))
-				end
-			catch e
-				false
-			end
-		println(temp_sol)
-
 		#delete the current model, then replace from the saved record
 		#this is to make starting from the saved files deterministic
 		m = nothing

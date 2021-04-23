@@ -16,34 +16,75 @@ function loosen(problem; id_increment=1000)
             problem.id.n_demands,
             problem.id.n_dimensions,
             problem.id.mixed_obj,
-            true
+            true,
+            '?'
         ))
 end
 
 function decide(problem)
     id = problem.id
     if id.loosened
-        if id.n_dimensions < 20 ||
-                id.n_vars < 175 ||
-                id.tightness >= .625 ||
-                id.mixed_obj
+        if id.n_dimensions < 20
             'A'
-        else
-            'C'
-        end
-    else
-        if id.n_demands >= 12.5
-            return 'C' end
-        if id.n_dimensions < 7.5
-            if !id.mixed_obj || id.n_vars < 175
-                return 'A' end
-            'B'
         else
             if id.n_vars < 175
                 'A'
             else
-                'B'
+                if id.tightness >= .625
+                    'A'
+                else
+                    if id.mixed_obj
+                        'A'
+                    else
+                        'C'
+                    end
+                end
+            end
+        end
+    else
+        if id.n_demands >= 12.5
+            'C'
+        else
+            if id.n_dimensions < 7.5
+                if !id.mixed_obj
+                    'A'
+                else
+                    if id.n_vars < 175
+                        'A'
+                    else
+                        'B'
+                    end
+                end
+            else
+                if id.n_vars < 175
+                    'A'
+                else
+                    'B'
+                end
             end
         end
     end
+end
+
+function set_decision(problem)
+    decision = decide(problem)
+
+    MDMKP.MDMKP_Prob(
+        problem.objective,
+        problem.upper_bounds,
+        problem.lower_bounds,
+        
+        MDMKP.Problem_ID(
+            problem.id.id,
+            problem.id.dataset,
+            problem.id.instance,
+            problem.id.case,
+            problem.id.tightness,
+            problem.id.n_vars,
+            problem.id.n_demands,
+            problem.id.n_dimensions,
+            problem.id.mixed_obj,
+            problem.id.loosened,
+            decision
+        ))
 end

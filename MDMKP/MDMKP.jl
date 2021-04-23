@@ -16,6 +16,7 @@ struct Problem_ID <: JOH.ProblemID
 	n_dimensions::Int
 	mixed_obj::Bool
 	loosened::Bool
+	category::Char
 end
 
 struct MDMKP_Prob <: JOH.Problem

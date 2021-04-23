@@ -7,11 +7,12 @@ tight_problems = MDMKP.load_folder()
 loose_problems = MDMKP.loosen.(tight_problems)
 problems = vcat(tight_problems, loose_problems)
 
+problems = MDMKP.set_decision.(problems)
+
 method = JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001,.001, .003],
-			[60,   60*3,  60],
+			[60,   60*3,  60*3],
 			"A method", 1)
-
 
 function main(; res_dir="results/decision_tree/")
 	dir = joinpath(res_dir, method.name)

@@ -1,1 +1,0 @@
-Main.JOH.Matheur.SSIT.SSIT_method(Number[0.001, 0.005, 0.01, 0.02, 0.05], Number[5, 5, 5, 5, 5], "even time", 6, Main.JOH.Matheur.SSIT.run_SSIT)

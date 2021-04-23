@@ -37,8 +37,8 @@ function create_MIPS_model(problem::GAPProb;
 	model = Model(optimizer)
 
 	#set cplex params
-	set_optimizer_attribute(model, "CPXPARAM_Threads", num_threads)
-	set_optimizer_attribute(model, "CPXPARAM_TimeLimit", time_limit)
+	JOH.Matheur.set_threads!(model, num_threads)
+	JOH.Matheur.set_time!(model, time_limit)
 
     #make the problem variables with a Binary constraint
     @variable(model, x[1:problem.id.num_agents, 1:problem.id.num_jobs], Bin)
