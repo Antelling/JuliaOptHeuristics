@@ -1,0 +1,2 @@
+phase 1 time,phase 1 gap,phase 1 obj,phase 2 time,phase 2 gap,phase 2 obj,phase 3 time,phase 3 gap,phase 3 obj,termination,lowest_gap,method,problem_id,problem_name,problem_dataset,problem_num_agents,problem_num_jobs,objective
+300.0089120864868,0.005316578057032383,6207.0,300.0038380622864,0.005155469631061705,6207.0,0.002624988555908203,0.005155469631061705,6207.0,OPTIMAL,0.005155469631061705,3. ssit long,28,d 000100 20,d,20,100,6207.0
