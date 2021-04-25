@@ -10,31 +10,23 @@ function load_dir(dir)
 end
 
 gap_compare_results = [("results/GAP_exp/ssit", "GAP_comp_ssit.xlsx"), ("results/GAP_exp/norm", "GAP_comp_norm.xlsx")]
-wtfc = [("results/cplexwhy/", "cplexwhy.xlsx")]
-new_results = [("results/Gurobi_test/", "gur.xlsx")]
+gurobi_gap_comp = [
+	("results/GAP_exp_Gurobi/first", "gurobi_first.xlsx"),
+	("results/GAP_exp_Gurobi/second", "gurobi_second.xlsx"),
+	("results/GAP_exp_Gurobi/third", "gurobi_third.xlsx")
+]
 
-for (d, n) in new_results
-	r = load_dir(d)
-	df = vcat(r..., cols=:union)
-	df = select(df, [:method, :termination, :problem_id, :problem_dataset,
-		:problem_instance, :problem_case, :problem_tightness, :problem_n_vars,
-		:problem_n_demands, :problem_n_dimensions, :problem_mixed_obj,
-		:objective, :infeasibility,
-		Symbol("phase 1 time"),
-		Symbol("phase 2 time"),
-		Symbol("phase 3 time"),
-		Symbol("phase 4 time"),
-		Symbol("phase 5 time"),
-		Symbol("phase 1 gap"),
-		Symbol("phase 2 gap"),
-		Symbol("phase 3 gap"),
-		Symbol("phase 4 gap"),
-		Symbol("phase 5 gap"),
-		])
-	XLSX.writetable(
-			n,
-			results = (
-				collect(DataFrames.eachcol(df)),
-				DataFrames.names(df)),
-			overwrite=true)
+function write_results(results_pairs)
+	for (d, n) in gurobi_gap_comp
+		r = load_dir(d)
+		df = vcat(r..., cols=:union)
+		XLSX.writetable(
+				n,
+				results = (
+					collect(DataFrames.eachcol(df)),
+					DataFrames.names(df)),
+				overwrite=true)
+	end
 end
+
+write_results(gurobi_gap_comp)
