@@ -45,23 +45,8 @@ function log_problem_groups(folder, methods, problem_groups)
 end
 
 
-"""Run Dr. Song's experimental design to compare SSIT methods on the 810 MDMKP
-benchmark problems.
-
-accepts:
-	methods::Vector{Method} - list of SSIT methods to compare
-	grouped_problems::Vector{Vector{Problem}} - list of list of problems, one
-		problem list per method
-	name::String - name of this experimental trial
-preconditions:
-	length(methods) == length(grouped_problems)
-success guarantee:
-	a folder named name will be created under "results/". This folder will
-	contain a file detailing the method names and problem IDs of the
-	methods/grouped_problems pairings. Each method's results will be recorded in
-	a subfolder."""
-function record_experiment(methods, grouped_problems, name,
-		getdettime)
+function start_experiment(methods, grouped_problems, all_problems, name,
+		getdettime, optimizer)
 	#check preconditions
 	@assert length(methods) == length(grouped_problems)
 
@@ -72,22 +57,35 @@ function record_experiment(methods, grouped_problems, name,
 
 	log_problem_groups(res_dir, methods, grouped_problems)
 
-	for (method, problem_group) in zip(methods, grouped_problems)
-		dir = joinpath(res_dir, method.name)
-		compdir = joinpath(res_dir, ".junk", method.name)
-		#closure for solver equiped solver constructor
-		mmm(x) = MDMKP.create_MIPS_model(x, CPLEX.Optimizer)
-		#make sure everything is compiled
-		SE.log_method_results(method, all_problems[1:1],
-				mmm, compdir, CPLEX.Optimizer, CPLEX.CPXgetdettime)
-
-		#long experiment
-		data = SE.log_method_results(method, problem_group,
-				mmm, dir, CPLEX.Optimizer, CPLEX.CPXgetdettime)
-
-	end
+	run_experiment(res_dir, methods, all_problems, getdettime, optimizer)
 end
 
+"""load the assigned method problems from the results folder, than record
+results"""
+function run_experiment(folder, methods, problems, getdettime, optimizer)
+	#load data
+	data = []
+	open(joinpath(folder, "methods__problem_groups.json"), "r") do f
+		data = JSON.parse(read(f, String))
+	end
+
+	#call run_method on each problem-subset/method pair
+	problem_subset(meth) = filter(p->p.id.id in data[meth.name], problems)
+	run_meth(meth) = run_method(folder, meth, problem_subset(meth), getdettime,
+			optimizer)
+	run_meth.(methods)
+end
+
+function run_method(res_dir, method, problems, getdettime, optimizer)
+	dir = joinpath(res_dir, method.name)
+	mmm(x) = MDMKP.create_MIPS_model(x, CPLEX.Optimizer)
+	run_trial(problems) = SE.log_method_results(method, problems,
+			mmm, joinpath(res_dir, method.name),
+			optimizer, getdettime)
+
+	run_trial(problems[1:1])
+	run_trial(problems)
+end
 
 
 all_problems = MDMKP.load_folder()
@@ -96,6 +94,7 @@ grouped_problems = split_problems(all_problems)
 
 # Juno.@enter record_experiment(methods, grouped_problems, "test")
 
-record_experiment(methods, grouped_problems, "test", CPLEX.CPXgetdettime)
+start_experiment(methods, grouped_problems, all_problems, "test", CPLEX.CPXgetdettime,
+		CPLEX.Optimizer)
 
 # Juno.@enter record_experiment(methods, grouped_problems, "test", CPLEX.CPXgetdettime)
