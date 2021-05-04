@@ -89,12 +89,10 @@ end
 
 
 all_problems = MDMKP.load_folder()
-methods = SE.make_SSIT_methods(.1, n_threads=1)
+methods = SE.make_SSIT_methods(n_threads=1)
 grouped_problems = split_problems(all_problems)
 
-# Juno.@enter record_experiment(methods, grouped_problems, "test")
 
-start_experiment(methods, grouped_problems, all_problems, "test", CPLEX.CPXgetdettime,
+start_experiment(methods, grouped_problems, all_problems, "song_mdmkp", CPLEX.CPXgetdettime,
 		CPLEX.Optimizer)
 
-# Juno.@enter record_experiment(methods, grouped_problems, "test", CPLEX.CPXgetdettime)
