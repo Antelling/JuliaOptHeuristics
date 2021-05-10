@@ -1,5 +1,6 @@
 using XLSX, JSON
 using DataFrames
+using Statistics: mean
 include("../src/JOH.jl")
 include("MDMKP_id_df.jl")
 
@@ -44,6 +45,8 @@ end
 function summarize_df(df)
 	su = DataFrame()
 	su[!, "id"] = [parse(Int, df.problem_id[1])]
+	highest_rtol = -1.0
+	lowest_gap = -1.0
 	for phase in 1:nrow(df)
 		su[!, "p$(phase)_obj"] = [-1*df.objective[phase]]
 		su[!, "p$(phase)_gap"] = [df.gap[phase]]
@@ -52,10 +55,15 @@ function summarize_df(df)
 		su[!, "p$(phase)_elapsed_time"] = [df.elapsed_time[phase]]
 		su[!, "p$(phase)_rtol"] = [df.rtol[phase]]
 		su[!, "p$(phase)_term"] = [df.term_stat[phase]]
+
+		highest_rtol = df.rtol[phase]
+		lowest_gap = df.gap[phase]
 	end
 	su[!, "total_solve_time"] = [sum(df.solve_time)]
 	su[!, "total_elapsed_time"] = [sum(df.elapsed_time)]
 	su[!, "total_dettime"] = [sum(df.dettime)]
+	su[!, "highest_rtol"] = [highest_rtol]
+	su[!, "lowest_gap"] = [lowest_gap]
 	su
 end
 
@@ -75,11 +83,39 @@ function join_summary_problem_tables(summary_df, problem_df)
 	new_results
 end
 
+function category_section_table(summary_df, category)
+	filtered = filter(row->row.category==category, summary_df)
+	filtered
+end
+
+function load_summary(folder)
+	#make complete and summary dataframes
+	complete, summary = read_result_dir(folder)
+	problem_df = MDMKP_id_dataframe()
+	complete, join_summary_problem_tables(summary, problem_df)
+end
 
 
-function write_table(table_name, summary, complete)
+function case_dataset_pivot(summary, category)
+	f = category_section_table(summary, category)
+	groups = groupby(f, [:case, :dataset])
+	vasko_summary = combine(groups, nrow => :n_problems,
+		:total_elapsed_time => mean => :aver_run_time,
+		:highest_rtol => mean => :aver_tol,
+		:lowest_gap => mean => :aver_gap)
+
 	XLSX.writetable(
-		table_name,
+		"category_$(category)_grouped_stats.xlsx",
+		results =(
+			collect(DataFrames.eachcol(vasko_summary)),
+			DataFrames.names(vasko_summary) ))
+end
+
+function write_excel_decision_tree_results(; folder="results/decision_tree/")
+	complete, summary = load_summary(folder)
+
+	XLSX.writetable(
+		"test(decision_tree_results).xlsx",
 		results =(
 			collect(DataFrames.eachcol(summary)),
 			DataFrames.names(summary) ),
@@ -88,9 +124,40 @@ function write_table(table_name, summary, complete)
 			DataFrames.names(complete) ))
 end
 
+function add_column(df, col, data)
+	replace(col, " "=>"_")
+	println(df, col, data)
+	df[!, Symbol(col)] = repeat([data], nrow(df))
+	df
+end
 
-complete, summary = read_result_dir("results/decision_tree/")
-problem_df = MDMKP_id_dataframe()
-summary = join_summary_problem_tables(summary, problem_df)
+function load_song_results(; folder="results/full_song_mdmkp")
 
-write_table("decision_tree_labeled.xlsx", summary, complete)
+	load_df(file) = load_summary(file)[2]
+	load_method_df(method) = add_column(load_df(method), "method",
+		last(splitpath(method)))
+
+	methods = readdir(folder, join=true)
+	methods = filter(x->isdir(x), methods)
+	dataframes = load_method_df.(methods)
+
+    data = vcat(dataframes...)
+	data
+end
+
+df = load_song_results()
+df[!, :method]
+
+XLSX.writetable("df.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))
+
+
+
+
+load_df(file) = load_summary(file)[2]
+load_method_df(method) = add_column(load_df(method), "method", last(splitpath(method)))
+
+methods = readdir("results/full_song_mdmkp/", join=true)
+methods = filter(x->isdir(x), methods)
+dataframes = load_method_df.(methods)
+
+data = vcat(dataframes...)
