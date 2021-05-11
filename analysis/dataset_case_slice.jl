@@ -20,12 +20,6 @@ function plot_df(df)
 		Guide.title("Method over time histograms"))
 end
 
-# ╔═╡ 943a8e8f-56dd-4a12-855c-3c18449509a7
-f = XLSX.readxlsx("../df.xlsx")
-
-# ╔═╡ 41947d17-3833-4113-ab77-11bfb8e85856
-sh = f["Sheet1"]
-
 # ╔═╡ 68b8dc02-b2aa-42a2-8f47-99a1353f511f
 """turn an array into a head=>tail pair, used to add titles to the XLSX sheet when
 making it a DataFrame"""
@@ -34,9 +28,12 @@ function col_to_pair(col)
 	h => collect(t)
 end
 
-# ╔═╡ 7e59a9ce-7bc6-464b-9263-44dcffc2d581
-#load excel file into dataframe
-dfm = DataFrame(map(col_to_pair, eachcol(DataFrame(sh[:]))))
+# ╔═╡ 943a8e8f-56dd-4a12-855c-3c18449509a7
+begin 
+	f = XLSX.readxlsx("../df.xlsx")
+	sh = f["Sheet1"]
+	dfm = DataFrame(map(col_to_pair, eachcol(DataFrame(sh[:]))))
+end
 
 # ╔═╡ c7b835d6-abff-42b3-b2d6-6b17ab42a9c0
 begin
@@ -64,8 +61,6 @@ plot_df(dfm)
 # ╠═c9708e1a-2e9d-43cf-b0f6-768bdf5364a0
 # ╠═92541b63-eea6-46bc-9961-6c10edf9faea
 # ╠═50544e4d-5291-46bb-956b-153cb65d527a
-# ╟─943a8e8f-56dd-4a12-855c-3c18449509a7
-# ╟─41947d17-3833-4113-ab77-11bfb8e85856
-# ╟─68b8dc02-b2aa-42a2-8f47-99a1353f511f
-# ╟─7e59a9ce-7bc6-464b-9263-44dcffc2d581
+# ╠═943a8e8f-56dd-4a12-855c-3c18449509a7
+# ╠═68b8dc02-b2aa-42a2-8f47-99a1353f511f
 # ╠═8be48d92-2916-40a9-bd99-c3967465e135
