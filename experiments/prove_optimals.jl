@@ -14,8 +14,9 @@ problems = MDMKP.set_decision.(problems)
 base_case = JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001],
 			[60*60*48],
-			"2 days 8 cores", 8)
+			"2 days 4 cores", 4)
 
+println("four cores for me sir")
 function log_ssit_run(problem, method, dir; 
 		opt=default_opt, 
 		det_log=default_get_det,
@@ -28,6 +29,7 @@ function main(problems, res_dir)
 	mkpath(res_dir)
 	for problem in problems
 		problem_dir = joinpath(res_dir, "$(problem.id.id)")
+		mkpath(problem_dir)
 		log_ssit_run(problem, base_case, problem_dir)
 	end
 end

@@ -36,7 +36,6 @@ function log_ssit_run(problem, method, dir;
 end
 
 function main(problems, case; res_dir="results/decision_tree/")
-	rm(res_dir, force=true)
 	mkpath(res_dir)
 	for problem in problems
 		if problem.id.category != case
@@ -46,9 +45,11 @@ function main(problems, case; res_dir="results/decision_tree/")
 		method = ssit_methods[problem.id.category]
 
 		problem_dir = joinpath(res_dir, "ssit", "$(problem.id.id)")
+		mkpath(problem_dir)
 		log_ssit_run(problem, method, problem_dir)
 
 		base_dir = joinpath(res_dir, "base", "$(problem.id.id)")
+		mkpath(base_dir)
 		log_ssit_run(problem, base_case, base_dir)
 	end
 end
@@ -56,10 +57,10 @@ end
 println("code loaded.")
 
 #compilation run
-main(problems[1:1], 'A', res_dir="results/decision_tree/A/")
+#main(problems[1:1], 'A', res_dir="results/decision_tree/A/")
 println("code compiled.")
 
-main(problems, 'A', res_dir="results/decision_tree/A/")
+main(problems[1458:end], 'A', res_dir="results/decision_tree/A/")
 println("A finished...")
 
 main(problems, 'B', res_dir="results/decision_tree/B/")
