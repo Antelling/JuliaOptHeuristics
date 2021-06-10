@@ -10,8 +10,8 @@ problems = MDMKP.set_decision.(problems)
 
 ssit_methods = Dict(
 	'A'=> JOH.Matheur.SSIT.make_SSIT_method(
-			[.0001,.001, .003, .007, .01],
-			[60,   60*3,  60*3, 60*3, 60*3],
+			[.0001, .001, .005, .01, .02],
+			[60*5,   60*3,  60*3, 60*3, 60*3],
 			"A method", 1),
 	'B'=> JOH.Matheur.SSIT.make_SSIT_method(
 			[.001, .003, .005, .008, .01, .02],

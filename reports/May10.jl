@@ -4,49 +4,64 @@
 using Markdown
 using InteractiveUtils
 
+# ╔═╡ c7b8a7d7-eda7-4cae-96c8-6c4e52d6e73d
+using StructArrays, Query
+
 # ╔═╡ 523d7e80-5c67-47a7-8ed7-69fa06b6b0f3
 begin
 	using XLSX, DataFrames
 	using Statistics: mean
 end
 
-# ╔═╡ 474add99-3a68-4ec7-8acc-1f02179093ec
-begin
-	each_elem(row) = zip(names(row), first.(eachcol(row)))
-	tr(v) = "<tr><td>$(round(last(v), sigdigits=3))</td></tr>"
-	group_summary(row) = join(["<table>", tr.(each_elem(row))..., "</table>"])
-end
-
-# ╔═╡ d0d4237f-d8e9-4ebe-a154-e6ee689b748e
-function vasko_summary_table(df::DataFrame)
-	elements = ["<h1>Title</h1>", "<table>"]
-	for dataset in 1:9
-		push!(elements, "<tr>")
-		for case in 1:6
-			push!(elements, "<td>")
-			row = filter(r->r.dataset==dataset&&r.case==case, df)
-			try
-				push!(elements, group_summary(row))
-			catch BoundsError
-				push!(elements, "<table><tr><td>$case</td></tr><tr><td>$dataset</td></tr><tr><td>0</td></tr><tr><td>-1</td></tr><tr><td>-1</td></tr><tr><td>-1</td></tr></table>")
-			end
-			push!(elements, "</td>")
-		end
-		push!(elements, "</tr>")
-	end
-	push!(elements, "</table>")
-	HTML(join(elements))	
-end
-
 # ╔═╡ 9ae4f227-26cc-47c6-b95d-8f7811386171
-function case_dataset_pivot(summary, category)
-	f = filter(row->row.category==category, summary)
+#split a dataframe by case and dataset, then combine with summary stats
+function case_dataset_pivot(summary, method)
+	f = filter(row->row.method==method, summary)
 	groups = groupby(f, [:case, :dataset])
-	vasko_summary = combine(groups, nrow => :n_problems,
+	combine(groups, nrow => :n_problems,
 		:total_elapsed_time => mean => :aver_run_time,
 		:highest_rtol => mean => :aver_tol,
 		:lowest_gap => mean => :aver_gap)
 end
+
+# ╔═╡ db530169-b2d3-48bf-a69a-49b4c070513b
+begin
+	# table helper functions
+	tbl(s) = "<table>" * join(s) * "</table>"
+	td(s) = "<td>$(join(s))</td>"
+	tr(s) = "<tr>$(join(s))</tr>"
+	
+	init_table(df) = fill("", (6*9, 6))
+end
+
+# ╔═╡ c9f0573c-ce4c-4114-8bee-5c52a3016246
+# the combined dataset/case pivot table is a tall rectangle where every entry is a row
+# we use this function to write each record to a specific location of a 2D summary 
+# table 
+""" write the passed dataframe to the record object, at the location specifed by df[:case] and df[:dataset]"""
+function store!(record, df) 
+	str(i) = "$i"
+	j = df[:case]
+	i = ((df[:dataset] - 1) * 6) + 1
+	
+	record[i, j] = str(df[:case])
+	record[i + 1, j] = str(df[:dataset])
+	record[i + 2, j] = str(df[:n_problems])
+	record[i + 3, j] = str(df[:aver_run_time])
+	record[i + 4, j] = str(df[:aver_tol])
+	record[i + 5, j] = str(df[:aver_gap])
+end
+
+# ╔═╡ e4f32a9c-34ff-4990-bd8b-2508eecd6e03
+""" turn a combined GroupedDataframe into a flat table """
+function flat_tbl(g)
+	record = init_table(g)
+	map(val -> store!(record, val), eachrow(g))
+	record
+end
+
+# ╔═╡ 001d0435-b172-47c9-86e4-316a6a1104e0
+show_tbl(g) = HTML(tbl(mapreduce(r -> tr(td.(r)), *, eachrow(flat_tbl(g)))))
 
 # ╔═╡ 46b258b5-2e68-4739-a77b-a583afbe3dd6
 """turn an array into a head=>tail pair, used to add titles to the XLSX sheet when
@@ -57,29 +72,29 @@ function col_to_pair(col)
 end
 
 # ╔═╡ 8e2669a4-5382-45bc-b91e-2fe27b2a6910
+#read the excel file we are summarizing
 begin 
-	f = XLSX.readxlsx("../df.xlsx")
+	f = XLSX.readxlsx("../decision_tree_A.xlsx")
 	sh = f["Sheet1"]
 	dfm = DataFrame(map(col_to_pair, eachcol(DataFrame(sh[:]))))
-	md"### dfm = ", dfm
+	dfm
 end
 
-# ╔═╡ 0dbe71da-1a47-41fe-b80e-c7ebba9f1d47
-vasko_summary_table(case_dataset_pivot(dfm, "A"))
+# ╔═╡ dde4a7e7-2298-440c-ae72-3546aaf8ef56
+vasko_sum_table = case_dataset_pivot(dfm, "base");
 
-# ╔═╡ fa1b76a5-e117-43c0-9873-231ead43c602
-row = filter(r->r.dataset==3&&r.case==2, case_dataset_pivot(dfm, "A"))
-
-# ╔═╡ dd2dc6e2-fb9b-406d-a794-373a3816bfff
-
+# ╔═╡ 853f8eab-e829-423c-9a11-8153ff14090d
+show_tbl(vasko_sum_table)
 
 # ╔═╡ Cell order:
-# ╠═0dbe71da-1a47-41fe-b80e-c7ebba9f1d47
-# ╠═474add99-3a68-4ec7-8acc-1f02179093ec
-# ╠═d0d4237f-d8e9-4ebe-a154-e6ee689b748e
-# ╠═fa1b76a5-e117-43c0-9873-231ead43c602
+# ╠═853f8eab-e829-423c-9a11-8153ff14090d
+# ╠═dde4a7e7-2298-440c-ae72-3546aaf8ef56
 # ╠═9ae4f227-26cc-47c6-b95d-8f7811386171
+# ╠═db530169-b2d3-48bf-a69a-49b4c070513b
+# ╠═001d0435-b172-47c9-86e4-316a6a1104e0
+# ╠═e4f32a9c-34ff-4990-bd8b-2508eecd6e03
+# ╠═c9f0573c-ce4c-4114-8bee-5c52a3016246
 # ╠═8e2669a4-5382-45bc-b91e-2fe27b2a6910
 # ╠═46b258b5-2e68-4739-a77b-a583afbe3dd6
-# ╠═523d7e80-5c67-47a7-8ed7-69fa06b6b0f3
-# ╠═dd2dc6e2-fb9b-406d-a794-373a3816bfff
+# ╠═c7b8a7d7-eda7-4cae-96c8-6c4e52d6e73d
+# ╟─523d7e80-5c67-47a7-8ed7-69fa06b6b0f3

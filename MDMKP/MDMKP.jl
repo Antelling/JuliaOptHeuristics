@@ -1,6 +1,5 @@
 module MDMKP
-
-using Main.JOH #import abstract types
+include("../src/JOH.jl")
 using JuMP #used to create the MOI model
 
 export MDMKP_Prob, MDMKP_Sol, load_folder, create_MIPS_model
