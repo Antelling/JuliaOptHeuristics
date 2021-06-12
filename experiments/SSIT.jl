@@ -104,7 +104,7 @@ function include_aux_data(df::DataFrame, method, problem_id)
 	df
 end
 
-function include_sol_data(df, ssit_phases, problem, model)
+function include_sol_data(df, ssit_phases, model)
 	lp = last(ssit_phases, 1)
 	try
 		df[!, :objective] = [objective_value(model)]
@@ -114,17 +114,18 @@ function include_sol_data(df, ssit_phases, problem, model)
 	df
 end
 
+_get_id(p) = try p["id"]  catch LoadError p.id end
 function summarize_ssit(ssit_phases::DataFrame, method, problem, model)
 	df = include_aux_data(flatten_ssit(ssit_phases, method.tolerances),
-		method, problem.id)
-	df = include_sol_data(df, ssit_phases, problem, model)
+		method, _get_id(problem))
+	df = include_sol_data(df, ssit_phases, model)
 	df
 end
 
 function generate_comparison_data(
 		method::JOH.Matheur.SSIT.SSIT_method,
 		problems::Vector{T},
-		mips_model; results_dir="results") where T <: JOH.Problem
+		mips_model; results_dir="results") where T
 
 	results = []
 	for problem in problems
@@ -132,6 +133,23 @@ function generate_comparison_data(
 		ssit_phases = JOH.Matheur.evaluate(model, method)
 		result_df = summarize_ssit(ssit_phases, method, problem, model)
 		CSV.write("$(results_dir)/$(problem.id.id).csv", result_df)
+
+		push!(results, result_df)
+	end
+
+	results
+end
+
+function generate_comparison_data2(
+		method::JOH.Matheur.SSIT.SSIT_method,
+		problems::Vector{T},
+		; results_dir="results") where T 
+
+	results = []
+	for problem in problems
+		ssit_phases = JOH.Matheur.evaluate(problem.model, method)
+		result_df = summarize_ssit(ssit_phases, method, problem, problem.model)
+		CSV.write("$(results_dir)/$(_get_id(problem.id)).csv", result_df)
 
 		push!(results, result_df)
 	end

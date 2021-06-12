@@ -1,4 +1,5 @@
 using JuMP
+include("../src/JOH.jl")
 
 function one_hot_encode(index, group, n_groups)
     enc = zeros(n_groups)
@@ -6,7 +7,7 @@ function one_hot_encode(index, group, n_groups)
     map(elem->vcat(elem.resources, enc), group)
 end
 
-function jump_model(problem::Problem, num_threads)::Model
+function jump_model(problem::MMKP_Data, num_threads)::Model
     model = Model()
 	JOH.Matheur.set_threads!(model, num_threads)
 
