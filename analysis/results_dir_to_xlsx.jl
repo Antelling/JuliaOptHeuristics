@@ -1,8 +1,8 @@
 using XLSX, JSON
 using DataFrames
 using Statistics: mean
-include("./src/JOH.jl")
-include("./analysis/MDMKP_id_df.jl")
+include("../src/JOH.jl")
+include("MDMKP_id_df.jl")
 
 function vec_to_DF(vec, problem_id)
 	dataframe = JOH.Matheur.Model_DF()
@@ -146,7 +146,6 @@ function load_song_results(; folder="results/full_song_mdmkp")
 end
 
 
-df = load_song_results(folder="results/decision_tree/A")
-df[!, :method]
+df = load_song_results(folder="results/decision_tree/B")
 
-XLSX.writetable("decision_tree_A.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))
+XLSX.writetable("decision_tree_B.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.5
+# v0.14.8
 
 using Markdown
 using InteractiveUtils
@@ -74,17 +74,26 @@ end
 # ╔═╡ 8e2669a4-5382-45bc-b91e-2fe27b2a6910
 #read the excel file we are summarizing
 begin 
-	f = XLSX.readxlsx("../decision_tree_A.xlsx")
+	f = XLSX.readxlsx("../decision_tree_B.xlsx")
 	sh = f["Sheet1"]
 	dfm = DataFrame(map(col_to_pair, eachcol(DataFrame(sh[:]))))
 	dfm
 end
 
 # ╔═╡ dde4a7e7-2298-440c-ae72-3546aaf8ef56
-vasko_sum_table = case_dataset_pivot(dfm, "base");
+vasko_sum_table = case_dataset_pivot(dfm, "ssit");
 
 # ╔═╡ 853f8eab-e829-423c-9a11-8153ff14090d
 show_tbl(vasko_sum_table)
+
+# ╔═╡ 8668715e-a505-4a59-9934-94d9ba824d95
+
+
+# ╔═╡ 2ed608a9-b0f5-4c1d-85de-a0000f5009b2
+
+
+# ╔═╡ 76515738-b71a-4d65-8583-3924d160813e
+
 
 # ╔═╡ Cell order:
 # ╠═853f8eab-e829-423c-9a11-8153ff14090d
@@ -98,3 +107,6 @@ show_tbl(vasko_sum_table)
 # ╠═46b258b5-2e68-4739-a77b-a583afbe3dd6
 # ╠═c7b8a7d7-eda7-4cae-96c8-6c4e52d6e73d
 # ╟─523d7e80-5c67-47a7-8ed7-69fa06b6b0f3
+# ╠═8668715e-a505-4a59-9934-94d9ba824d95
+# ╠═2ed608a9-b0f5-4c1d-85de-a0000f5009b2
+# ╠═76515738-b71a-4d65-8583-3924d160813e

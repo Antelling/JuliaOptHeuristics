@@ -26,9 +26,10 @@ end
 
 include("loaders.jl")
 include("moi_model.jl")
+include("load_mps.jl")
+problems = load_problems()
 
 function get_id(path)
-    println(path)
     class, instance = splitpath(path)[end-1:end]
     Dict("class"=>class, "instance"=>first(split(instance, ".")))
 end

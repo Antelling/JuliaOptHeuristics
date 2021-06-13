@@ -31,11 +31,10 @@ function main(res_dir, problems)
 	run_trial(method(), res_dir, problems)
 end
 
-problems =  MMKP.load_folder()
-add_id!(p) = (p["id"] = p["class"] * "-" * p["instance"])
-map(p->add_id!(p.id), problems)
+problems =  MMKP.load_problems()
 
 resdir="../results/test_mmkp"
 mkpath(resdir)
 main(resdir, problems[1:1])
-main(resdir, problems)
+main(resdir, problems[2:5])
+solver_name(problems[2].model)
