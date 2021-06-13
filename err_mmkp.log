@@ -1,0 +1,22 @@
+ERROR: LoadError: MathOptInterface.UnsupportedAttribute{MathOptInterface.RawParameter}: Attribute MathOptInterface.RawParameter("CPXPARAM_Threads") is not supported by the model.
+Stacktrace:
+ [1] set(::Gurobi.Optimizer, ::MathOptInterface.RawParameter, ::Int64) at /home/students.kutztown.edu/adell892/.julia/packages/Gurobi/8lxab/src/MOI_wrapper.jl:525
+ [2] set(::MathOptInterface.Bridges.LazyBridgeOptimizer{Gurobi.Optimizer}, ::MathOptInterface.RawParameter, ::Int64) at /home/students.kutztown.edu/adell892/.julia/packages/MathOptInterface/5WwpK/src/Bridges/bridge_optimizer.jl:726
+ [3] reset_optimizer(::MathOptInterface.Utilities.CachingOptimizer{MathOptInterface.AbstractOptimizer,MathOptInterface.Utilities.UniversalFallback{MathOptInterface.Utilities.Model{Float64}}}, ::MathOptInterface.Bridges.LazyBridgeOptimizer{Gurobi.Optimizer}) at /home/students.kutztown.edu/adell892/.julia/packages/MathOptInterface/5WwpK/src/Utilities/cachingoptimizer.jl:126
+ [4] reset_optimizer(::Model, ::MathOptInterface.Bridges.LazyBridgeOptimizer{Gurobi.Optimizer}, ::Bool) at /home/students.kutztown.edu/adell892/.julia/packages/JuMP/qhoVb/src/optimizer_interface.jl:17
+ [5] reset_optimizer(::Model, ::MathOptInterface.Bridges.LazyBridgeOptimizer{Gurobi.Optimizer}) at /home/students.kutztown.edu/adell892/.julia/packages/JuMP/qhoVb/src/optimizer_interface.jl:16
+ [6] set_optimizer(::Model, ::Type{T} where T; bridge_constraints::Bool) at /home/students.kutztown.edu/adell892/.julia/packages/JuMP/qhoVb/src/optimizer_interface.jl:73
+ [7] set_optimizer at /home/students.kutztown.edu/adell892/.julia/packages/JuMP/qhoVb/src/optimizer_interface.jl:61 [inlined]
+ [8] #1 at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/MMKP_SSIT.jl:17 [inlined]
+ [9] iterate at ./generator.jl:47 [inlined]
+ [10] _collect(::Array{Main.MMKP.MMKP_Prob,1}, ::Base.Generator{Array{Main.MMKP.MMKP_Prob,1},var"#1#2"}, ::Base.EltypeUnknown, ::Base.HasShape{1}) at ./array.jl:699
+ [11] collect_similar at ./array.jl:628 [inlined]
+ [12] map at ./abstractarray.jl:2162 [inlined]
+ [13] run_trial(::Main.JOH.Matheur.SSIT.SSIT_method, ::String, ::Array{Main.MMKP.MMKP_Prob,1}) at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/MMKP_SSIT.jl:17
+ [14] main(::String, ::Array{Main.MMKP.MMKP_Prob,1}) at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/MMKP_SSIT.jl:31
+ [15] top-level scope at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/MMKP_SSIT.jl:40
+ [16] include(::Function, ::Module, ::String) at ./Base.jl:380
+ [17] include(::Module, ::String) at ./Base.jl:368
+ [18] exec_options(::Base.JLOptions) at ./client.jl:296
+ [19] _start() at ./client.jl:506
+in expression starting at /home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/experiments/MMKP_SSIT.jl:40

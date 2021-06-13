@@ -35,7 +35,7 @@ function log_ssit_run(problem, method, dir;
 	SE.log_ssit_run(model_gen(problem, opt), method, dir, opt, det_log)
 end
 
-function main(problems, case; res_dir="results/decision_tree/")
+function main(problems, case; res_dir="results/decision_tree/", use_base=true)
 	mkpath(res_dir)
 	for problem in problems
 		if problem.id.category != case
@@ -48,23 +48,25 @@ function main(problems, case; res_dir="results/decision_tree/")
 		mkpath(problem_dir)
 		log_ssit_run(problem, method, problem_dir)
 
-		base_dir = joinpath(res_dir, "base", "$(problem.id.id)")
-		mkpath(base_dir)
-		log_ssit_run(problem, base_case, base_dir)
+		if use_base
+			base_dir = joinpath(res_dir, "base", "$(problem.id.id)")
+			mkpath(base_dir)
+			log_ssit_run(problem, base_case, base_dir)
+		end
 	end
 end
 
 println("code loaded.")
 
 #compilation run
-#main(problems[1:1], 'A', res_dir="results/decision_tree/A/")
+main(problems[1:1], 'A', res_dir="results/decision_tree/A/", use_base=false)
 println("code compiled.")
 
-main(problems[1458:end], 'A', res_dir="results/decision_tree/A/")
+main(problems, 'A', res_dir="results/decision_tree/A/")
 println("A finished...")
 
-main(problems, 'B', res_dir="results/decision_tree/B/")
-println("B finished...")
+#main(problems, 'B', res_dir="results/decision_tree/B/")
+#println("B finished...")
 
-main(problems, 'C', res_dir="results/decision_tree/C/")
-println("C finished. Goodbye.")
+#main(problems, 'C', res_dir="results/decision_tree/C/")
+#println("C finished. Goodbye.")
