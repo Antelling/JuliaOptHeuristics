@@ -43,7 +43,6 @@ function run_SSIT(m::JuMP.Model, method::SSIT_method; id=1,
 
 	results_DF = Matheur.Model_DF()
 
-	previous_sol = copy(m[:x])
 	for i in 1:length(method.tolerances)
 		Matheur.set_tolerance!(m, method.tolerances[i])
 		time_limit = method.times[i]
@@ -51,16 +50,8 @@ function run_SSIT(m::JuMP.Model, method::SSIT_method; id=1,
 
 		elapsed_time = Matheur.silent_optimize!(m)
 
-		if elapsed_time > time_limit * 1.1 
-			println("error: $(now()) : time elapsed by phase was $elapsed_time,
-			 	exceeding $time_limit")
-			error_handler(previous_sol, m, method, i, id)
-		end
-
 		row = Matheur.get_DF_row(m, elapsed_time=elapsed_time, index=i)
 		push!(results_DF, row)
-
-		previous_sol = copy(m[:x])
 
 		if termination_status(m) == MOI.OPTIMAL || termination_status(m) ==
 				MOI.INFEASIBLE
