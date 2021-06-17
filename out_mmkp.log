@@ -1,295 +1,590 @@
 Academic license - for non-commercial use only - expires 2021-08-11
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I07.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I08.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I09.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I10.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I11.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I12.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class A/I13.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST01.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST02.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST03.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST04.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST05.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST06.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST07.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST08.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST09.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST10.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST11.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST12.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST13.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST14.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST15.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST16.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST17.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST18.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST19.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class B/INST20.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST21.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST22.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST23.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST24.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST25.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST26.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST27.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST28.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST29.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class C/INST30.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance1.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance10.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance100.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance101.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance102.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance103.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance104.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance105.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance106.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance107.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance108.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance109.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance11.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance110.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance111.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance112.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance113.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance114.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance115.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance116.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance117.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance118.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance119.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance12.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance120.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance121.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance122.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance123.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance124.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance125.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance126.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance127.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance128.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance129.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance13.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance130.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance131.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance132.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance133.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance134.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance135.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance136.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance137.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance138.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance139.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance14.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance140.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance141.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance142.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance143.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance144.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance145.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance146.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance147.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance148.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance149.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance15.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance150.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance151.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance152.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance153.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance154.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance155.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance156.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance157.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance158.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance159.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance16.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance160.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance161.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance162.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance163.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance164.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance165.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance166.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance167.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance168.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance169.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance17.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance170.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance171.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance172.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance173.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance174.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance175.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance176.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance177.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance178.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance179.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance18.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance180.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance181.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance182.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance183.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance184.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance185.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance186.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance187.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance188.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance189.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance19.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance190.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance191.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance192.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance193.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance194.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance195.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance196.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance197.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance198.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance199.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance2.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance20.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance200.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance201.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance202.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance203.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance204.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance205.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance206.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance207.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance208.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance209.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance21.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance210.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance211.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance212.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance213.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance214.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance215.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance216.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance217.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance218.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance219.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance22.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance220.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance221.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance222.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance223.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance224.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance225.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance226.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance227.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance228.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance229.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance23.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance230.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance231.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance232.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance233.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance234.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance235.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance236.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance237.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance238.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance239.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance24.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance240.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance241.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance242.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance243.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance244.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance245.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance246.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance247.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance248.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance249.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance25.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance250.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance251.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance252.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance253.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance254.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance255.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance256.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance26.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance27.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance28.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance29.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance3.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance30.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance31.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance32.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance33.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance34.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance35.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance36.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance37.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance38.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance39.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance4.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance40.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance41.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance42.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance43.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance44.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance45.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance46.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance47.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance48.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance49.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance5.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance50.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance51.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance52.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance53.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance54.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance55.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance56.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance57.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance58.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance59.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance6.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance60.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance61.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance62.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance63.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance64.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance65.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance66.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance67.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance68.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance69.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance7.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance70.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance71.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance72.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance73.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance74.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance75.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance76.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance77.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance78.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance79.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance8.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance80.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance81.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance82.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance83.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance84.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance85.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance86.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance87.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance88.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance89.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance9.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance90.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance91.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance92.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance93.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance94.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance95.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance96.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance97.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance98.txt
-/home/students.kutztown.edu/adell892/julia/JuliaOptHeuristics/MMKP/benchmark_problems/Class D/Instance99.txt
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 110 rows, 1000 columns and 10022 nonzeros
+Model fingerprint: 0x69a1e548
+Variable types: 0 continuous, 1000 integer (1000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 5e+02]
+Found heuristic solution: objective -14296.00000
+Presolve time: 0.01s
+Presolved: 110 rows, 1000 columns, 10022 nonzeros
+Variable types: 0 continuous, 1000 integer (1000 binary)
+
+Root relaxation: objective -2.460795e+04, 357 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -24607.951    0   18 -14296.000 -24607.951  72.1%     -    0s
+H    0     0                    -24243.00000 -24607.951  1.51%     -    0s
+H    0     0                    -24394.00000 -24607.951  0.88%     -    0s
+     0     0 -24607.553    0   23 -24394.000 -24607.553  0.88%     -    0s
+H    0     0                    -24584.00000 -24607.553  0.10%     -    0s
+     0     0 -24607.470    0   20 -24584.000 -24607.470  0.10%     -    0s
+     0     0 -24607.462    0   22 -24584.000 -24607.462  0.10%     -    0s
+     0     0 -24607.456    0   24 -24584.000 -24607.456  0.10%     -    0s
+     0     0 -24607.417    0   28 -24584.000 -24607.417  0.10%     -    0s
+     0     0 -24607.417    0   28 -24584.000 -24607.417  0.10%     -    0s
+     0     0 -24607.000    0   18 -24584.000 -24607.000  0.09%     -    0s
+     0     0 -24607.000    0   24 -24584.000 -24607.000  0.09%     -    0s
+     0     0 -24607.000    0   28 -24584.000 -24607.000  0.09%     -    0s
+     0     0 -24607.000    0   30 -24584.000 -24607.000  0.09%     -    0s
+     0     0 -24607.000    0   30 -24584.000 -24607.000  0.09%     -    0s
+     0     2 -24607.000    0   30 -24584.000 -24607.000  0.09%     -    0s
+H  519   440                    -24585.00000 -24607.000  0.09%   3.6    2s
+  5888  4653 -24603.270   63   18 -24585.000 -24606.181  0.09%   6.9    5s
+ 11576  9150 -24596.240  167   17 -24585.000 -24605.907  0.09%   6.5   10s
+ 23848 15719 -24600.886   37   18 -24585.000 -24605.725  0.08%   5.7   15s
+ 37383 23639 -24604.973   32   20 -24585.000 -24605.364  0.08%   5.4   20s
+ 50150 34794 -24589.179   76   17 -24585.000 -24605.135  0.08%   5.3   25s
+ 64641 47255 -24603.051   47   17 -24585.000 -24604.932  0.08%   5.2   30s
+ 78845 59520 -24601.804   57   18 -24585.000 -24604.805  0.08%   5.1   35s
+ 92695 71491 -24600.136   61   18 -24585.000 -24604.691  0.08%   5.1   40s
+ 108367 85039 -24597.079   71   17 -24585.000 -24604.583  0.08%   5.1   45s
+ 122911 97497 -24600.959   54   18 -24585.000 -24604.498  0.08%   5.1   50s
+ 136701 109407 -24599.103   79   18 -24585.000 -24604.429  0.08%   5.1   55s
+
+Cutting planes:
+  Gomory: 20
+  Inf proof: 1
+  Zero half: 3
+
+Explored 151261 nodes (766890 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 5: -24585 -24584 -24394 ... -14296
+
+Time limit reached
+Best objective -2.458500000000e+04, best bound -2.460400000000e+04, gap 0.0773%
+
+User-callback calls 310180, time in user-callback 0.10 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 110 rows, 1000 columns and 10022 nonzeros
+Model fingerprint: 0x69a1e548
+Variable types: 0 continuous, 1000 integer (1000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 5e+02]
+Presolved: 110 rows, 1000 columns, 10022 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 20
+  Inf proof: 1
+  Zero half: 3
+
+Explored 151261 nodes (766890 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 5: -24585 -24584 -24394 ... -14296
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -2.458500000000e+04, best bound -2.460400000000e+04, gap 0.0773%
+
+User-callback calls 310209, time in user-callback 0.10 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 110 rows, 1000 columns and 10022 nonzeros
+Model fingerprint: 0x69a1e548
+Variable types: 0 continuous, 1000 integer (1000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 5e+02]
+Presolved: 110 rows, 1000 columns, 10022 nonzeros
+
+Continuing optimization...
+
+ 151261 121988 -24595.822   86   18 -24585.000 -24604.337  0.08%   5.1   60s
+ 165568 134266 -24598.703   69   18 -24585.000 -24604.265  0.08%   5.1   65s
+ 175032 142418 -24596.862  118   18 -24585.000 -24604.225  0.08%   5.1   70s
+ 188063 153615 -24599.984   54   18 -24585.000 -24604.171  0.08%   5.1   75s
+ 202011 165554 -24597.903   71   18 -24585.000 -24604.128  0.08%   5.1   80s
+ 216175 177631 -24594.305  118   18 -24585.000 -24604.095  0.08%   5.1   85s
+ 230504 189811 -24599.260   64   18 -24585.000 -24604.046  0.08%   5.1   90s
+ 244668 202029     cutoff  171      -24585.000 -24604.002  0.08%   5.1   95s
+ 258302 213777 -24598.957   61   18 -24585.000 -24603.970  0.08%   5.1  100s
+ 272181 225752 -24599.636   69   18 -24585.000 -24603.923  0.08%   5.1  105s
+ 286167 237819 -24587.517  138   17 -24585.000 -24603.890  0.08%   5.1  110s
+ 300009 249625 -24593.828  146   17 -24585.000 -24603.857  0.08%   5.1  115s
+
+Cutting planes:
+  Gomory: 21
+  Inf proof: 1
+  Zero half: 3
+
+Explored 313408 nodes (1599534 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 5: -24585 -24584 -24394 ... -14296
+
+Time limit reached
+Best objective -2.458500000000e+04, best bound -2.460300000000e+04, gap 0.0732%
+
+User-callback calls 640649, time in user-callback 0.20 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 110 rows, 1000 columns and 10022 nonzeros
+Model fingerprint: 0x69a1e548
+Variable types: 0 continuous, 1000 integer (1000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 5e+02]
+Presolved: 110 rows, 1000 columns, 10022 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 21
+  Inf proof: 1
+  Zero half: 3
+
+Explored 313408 nodes (1599534 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 5: -24585 -24584 -24394 ... -14296
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -2.458500000000e+04, best bound -2.460300000000e+04, gap 0.0732%
+
+User-callback calls 640678, time in user-callback 0.20 sec
+Academic license - for non-commercial use only - expires 2021-08-11
+Academic license - for non-commercial use only - expires 2021-08-11
+Academic license - for non-commercial use only - expires 2021-08-11
+Academic license - for non-commercial use only - expires 2021-08-11
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 160 rows, 1500 columns and 15035 nonzeros
+Model fingerprint: 0x9fb936d6
+Variable types: 0 continuous, 1500 integer (1500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 8e+02]
+Found heuristic solution: objective -21530.00000
+Presolve time: 0.03s
+Presolved: 160 rows, 1500 columns, 15035 nonzeros
+Variable types: 0 continuous, 1500 integer (1500 binary)
+
+Root relaxation: objective -3.690441e+04, 498 iterations, 0.02 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -36904.415    0   18 -21530.000 -36904.415  71.4%     -    0s
+H    0     0                    -36175.00000 -36904.415  2.02%     -    0s
+H    0     0                    -36661.00000 -36904.415  0.66%     -    0s
+     0     0 -36904.137    0   24 -36661.000 -36904.137  0.66%     -    0s
+H    0     0                    -36769.00000 -36904.137  0.37%     -    0s
+     0     0 -36904.060    0   24 -36769.000 -36904.060  0.37%     -    0s
+     0     0 -36904.030    0   26 -36769.000 -36904.030  0.37%     -    0s
+     0     0 -36903.948    0   28 -36769.000 -36903.948  0.37%     -    0s
+     0     0 -36903.948    0   28 -36769.000 -36903.948  0.37%     -    0s
+H    0     0                    -36780.00000 -36903.948  0.34%     -    0s
+     0     2 -36903.000    0   28 -36780.000 -36903.000  0.33%     -    0s
+H   49    49                    -36816.00000 -36903.000  0.24%   7.1    1s
+H  512   468                    -36827.00000 -36903.000  0.21%   4.9    2s
+H  514   445                    -36829.00000 -36903.000  0.20%   4.9    2s
+  2259  1645 -36841.396  224   16 -36829.000 -36903.000  0.20%  13.0    5s
+H 9343  7527                    -36848.00000 -36903.000  0.15%   7.8    8s
+ 10203  8331 -36893.974   75   28 -36848.000 -36903.000  0.15%   7.6   10s
+H10204  7915                    -36863.00000 -36903.000  0.11%   7.6   10s
+ 11049  8439 -36895.315  138   18 -36863.000 -36903.000  0.11%   8.2   15s
+ 15592 11204 -36885.328  312   14 -36863.000 -36903.000  0.11%   7.8   20s
+ 22567 15321 -36895.002  186   18 -36863.000 -36903.000  0.11%   7.3   25s
+ 30436 19999 -36899.827   56   20 -36863.000 -36903.000  0.11%   6.8   30s
+H33862 21799                    -36865.00000 -36903.000  0.10%   6.8   32s
+ 37791 25476 -36898.475   66   18 -36865.000 -36903.000  0.10%   6.7   35s
+ 45740 32865 -36888.639  287   18 -36865.000 -36902.964  0.10%   6.5   40s
+ 53169 39780 -36880.892  127   18 -36865.000 -36902.921  0.10%   6.3   45s
+H55783 39994                    -36871.00000 -36902.901  0.09%   6.3   46s
+ 60855 44665 -36894.368  166   18 -36871.000 -36902.867  0.09%   6.2   50s
+H61196 43172                    -36874.00000 -36902.864  0.08%   6.2   50s
+ 68282 49650 -36901.028   49   18 -36874.000 -36902.831  0.08%   6.1   55s
+
+Cutting planes:
+  Gomory: 24
+  MIR: 2
+
+Explored 76146 nodes (449431 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 10: -36874 -36871 -36865 ... -36769
+
+Time limit reached
+Best objective -3.687400000000e+04, best bound -3.690200000000e+04, gap 0.0759%
+
+User-callback calls 169310, time in user-callback 0.07 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 160 rows, 1500 columns and 15035 nonzeros
+Model fingerprint: 0x9fb936d6
+Variable types: 0 continuous, 1500 integer (1500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 8e+02]
+Presolved: 160 rows, 1500 columns, 15035 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 24
+  MIR: 2
+
+Explored 76146 nodes (449431 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 10: -36874 -36871 -36865 ... -36769
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -3.687400000000e+04, best bound -3.690200000000e+04, gap 0.0759%
+
+User-callback calls 169338, time in user-callback 0.07 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 160 rows, 1500 columns and 15035 nonzeros
+Model fingerprint: 0x9fb936d6
+Variable types: 0 continuous, 1500 integer (1500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 8e+02]
+Presolved: 160 rows, 1500 columns, 15035 nonzeros
+
+Continuing optimization...
+
+ 76146 56941 -36898.243   94   18 -36874.000 -36902.795  0.08%   5.9   60s
+ 83047 63288 -36888.380  102   18 -36874.000 -36902.769  0.08%   5.9   65s
+ 89460 69230 -36897.089   90   18 -36874.000 -36902.741  0.08%   5.8   70s
+ 95712 74797 -36887.547   94   18 -36874.000 -36902.726  0.08%   5.8   75s
+ 103223 81708 -36895.676   86   18 -36874.000 -36902.691  0.08%   5.8   80s
+ 111181 89094 -36890.296  100   16 -36874.000 -36902.671  0.08%   5.7   85s
+ 118414 95745 -36881.553  295   17 -36874.000 -36902.654  0.08%   5.7   90s
+ 125948 102660 -36881.014  159   17 -36874.000 -36902.630  0.08%   5.7   95s
+ 133921 109998 -36882.727  193   18 -36874.000 -36902.608  0.08%   5.6  100s
+ 141478 116905 -36891.014  251   17 -36874.000 -36902.588  0.08%   5.6  105s
+ 148824 123662 -36896.773   71   18 -36874.000 -36902.572  0.08%   5.6  110s
+ 156559 130814 -36885.950   96   18 -36874.000 -36902.554  0.08%   5.5  115s
+ 164502 138111 -36892.291  194   18 -36874.000 -36902.541  0.08%   5.5  120s
+
+Cutting planes:
+  Gomory: 27
+  MIR: 2
+
+Explored 164505 nodes (909447 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 10: -36874 -36871 -36865 ... -36769
+
+Time limit reached
+Best objective -3.687400000000e+04, best bound -3.690200000000e+04, gap 0.0759%
+
+User-callback calls 361291, time in user-callback 0.15 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 160 rows, 1500 columns and 15035 nonzeros
+Model fingerprint: 0x9fb936d6
+Variable types: 0 continuous, 1500 integer (1500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 3e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 8e+02]
+Presolved: 160 rows, 1500 columns, 15035 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 27
+  MIR: 2
+
+Explored 164505 nodes (909447 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 10: -36874 -36871 -36865 ... -36769
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -3.687400000000e+04, best bound -3.690200000000e+04, gap 0.0759%
+
+User-callback calls 361319, time in user-callback 0.15 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 210 rows, 2000 columns and 20009 nonzeros
+Model fingerprint: 0x9c621f4e
+Variable types: 0 continuous, 2000 integer (2000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 1e+03]
+Found heuristic solution: objective -28702.00000
+Presolve time: 0.04s
+Presolved: 210 rows, 2000 columns, 20009 nonzeros
+Variable types: 0 continuous, 2000 integer (2000 binary)
+
+Root relaxation: objective -4.919387e+04, 580 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -49193.866    0   18 -28702.000 -49193.866  71.4%     -    0s
+H    0     0                    -48725.00000 -49193.866  0.96%     -    0s
+H    0     0                    -48788.00000 -49193.866  0.83%     -    0s
+     0     0 -49193.767    0   20 -48788.000 -49193.767  0.83%     -    0s
+H    0     0                    -49063.00000 -49193.767  0.27%     -    0s
+     0     0 -49193.682    0   23 -49063.000 -49193.682  0.27%     -    0s
+     0     0 -49193.682    0   23 -49063.000 -49193.682  0.27%     -    0s
+     0     2 -49193.000    0   23 -49063.000 -49193.000  0.26%     -    0s
+H   71    71                    -49122.00000 -49193.000  0.14%   6.1    1s
+H  420   420                    -49123.00000 -49193.000  0.14%   3.9    2s
+H  764   643                    -49129.00000 -49193.000  0.13%  10.5    4s
+   791   663 -49185.360  152   18 -49129.000 -49193.000  0.13%  11.2    5s
+  4771  3924 -49179.740  186   18 -49129.000 -49193.000  0.13%  11.2   10s
+ 10203  9040 -49189.232  104   23 -49129.000 -49193.000  0.13%   8.8   16s
+ 10428  9192 -49178.339  136   18 -49129.000 -49193.000  0.13%   9.0   20s
+ 12532 10460 -49188.491  214   18 -49129.000 -49193.000  0.13%  10.5   25s
+ 17672 13616 -49174.140  295   18 -49129.000 -49193.000  0.13%   9.1   30s
+ 22938 16847 -49193.000   44   20 -49129.000 -49193.000  0.13%   8.8   35s
+ 29372 20822 -49189.907   95   18 -49129.000 -49193.000  0.13%   8.4   40s
+H30923 20834                    -49136.00000 -49193.000  0.12%   8.2   41s
+ 35638 23725 -49142.157  179   18 -49136.000 -49193.000  0.12%   8.1   45s
+ 42353 29975 -49165.275  481   13 -49136.000 -49193.000  0.12%   7.8   50s
+ 48460 35795 -49170.884  301   17 -49136.000 -49193.000  0.12%   7.7   55s
+H54778 40741                    -49141.00000 -49193.000  0.11%   7.4   59s
+
+Cutting planes:
+  Gomory: 14
+
+Explored 55286 nodes (409628 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 9: -49141 -49136 -49129 ... -28702
+
+Time limit reached
+Best objective -4.914100000000e+04, best bound -4.919300000000e+04, gap 0.1058%
+
+User-callback calls 129900, time in user-callback 0.05 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 210 rows, 2000 columns and 20009 nonzeros
+Model fingerprint: 0x9c621f4e
+Variable types: 0 continuous, 2000 integer (2000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 1e+03]
+Presolved: 210 rows, 2000 columns, 20009 nonzeros
+
+Continuing optimization...
+
+ 55286 41220 -49184.708  118   18 -49141.000 -49193.000  0.11%   7.4   60s
+ 61446 47017 -49187.751   56   18 -49141.000 -49193.000  0.11%   7.3   65s
+ 68861 54075 -49179.924  275   18 -49141.000 -49193.000  0.11%   7.2   70s
+ 75252 60083 -49189.999   69   18 -49141.000 -49193.000  0.11%   7.1   75s
+ 81618 66112 -49169.687  411   17 -49141.000 -49193.000  0.11%   7.0   80s
+ 88292 72413 -49165.758  388   16 -49141.000 -49193.000  0.11%   7.0   85s
+H88425 72214                    -49142.00000 -49193.000  0.10%   6.9   85s
+ 95456 78884 -49176.172  216   17 -49142.000 -49193.000  0.10%   6.9   90s
+H101819 83322                    -49145.00000 -49193.000  0.10%   6.8   94s
+
+Cutting planes:
+  Gomory: 14
+
+Explored 101820 nodes (690387 simplex iterations) in 34.35 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 10: -49145 -49142 -49141 ... -48725
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -4.914500000000e+04, best bound -4.919300000000e+04, gap 0.0977%
+
+User-callback calls 231586, time in user-callback 0.09 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 260 rows, 2500 columns and 25039 nonzeros
+Model fingerprint: 0x2e8dfec4
+Variable types: 0 continuous, 2500 integer (2500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 1e+03]
+Found heuristic solution: objective -35807.00000
+Presolve time: 0.05s
+Presolved: 260 rows, 2500 columns, 25039 nonzeros
+Variable types: 0 continuous, 2500 integer (2500 binary)
+
+Root relaxation: objective -6.148630e+04, 712 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -61486.302    0   17 -35807.000 -61486.302  71.7%     -    0s
+H    0     0                    -61122.00000 -61486.302  0.60%     -    0s
+H    0     0                    -61330.00000 -61486.302  0.25%     -    0s
+     0     0 -61486.258    0   22 -61330.000 -61486.258  0.25%     -    0s
+H    0     0                    -61369.00000 -61486.258  0.19%     -    0s
+     0     0 -61486.230    0   28 -61369.000 -61486.230  0.19%     -    0s
+     0     0 -61486.230    0   28 -61369.000 -61486.230  0.19%     -    0s
+     0     2 -61486.000    0   28 -61369.000 -61486.000  0.19%     -    1s
+H  106   106                    -61398.00000 -61486.000  0.14%   8.2    2s
+H  471   471                    -61430.00000 -61486.000  0.09%   4.3    3s
+H  638   563                    -61440.00000 -61486.000  0.07%   3.9    4s
+   642   567 -61486.000   10   18 -61440.000 -61486.000  0.07%   5.0    5s
+  1901  1353 -61474.465  202   17 -61440.000 -61486.000  0.07%  14.9   10s
+  4079  3241 -61477.742  193   18 -61440.000 -61486.000  0.07%  15.4   15s
+  8529  7473 -61446.769  396   16 -61440.000 -61485.982  0.07%   9.9   20s
+ 10203  9032 -61459.354   78   28 -61440.000 -61485.965  0.07%  10.6   25s
+ 10331  9119 -61483.479   80   18 -61440.000 -61485.965  0.07%  10.8   30s
+ 11125  9648 -61462.019  477   16 -61440.000 -61485.965  0.07%  11.9   35s
+ 12506 10420 -61482.003  144   16 -61440.000 -61485.965  0.07%  12.8   40s
+ 13583 11050 -61481.128  149   18 -61440.000 -61485.965  0.07%  13.3   45s
+ 16645 12949 -61478.256  225   17 -61440.000 -61485.965  0.07%  11.6   50s
+ 19720 14867 -61466.324  510   17 -61440.000 -61485.961  0.07%  10.6   55s
+
+Cutting planes:
+  Gomory: 15
+
+Explored 22471 nodes (238039 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 7: -61440 -61430 -61398 ... -35807
+
+Time limit reached
+Best objective -6.144000000000e+04, best bound -6.148500000000e+04, gap 0.0732%
+
+User-callback calls 73696, time in user-callback 0.04 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 260 rows, 2500 columns and 25039 nonzeros
+Model fingerprint: 0x2e8dfec4
+Variable types: 0 continuous, 2500 integer (2500 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 1e+03]
+Presolved: 260 rows, 2500 columns, 25039 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 15
+
+Explored 22471 nodes (238039 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 7: -61440 -61430 -61398 ... -35807
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -6.144000000000e+04, best bound -6.148500000000e+04, gap 0.0732%
+
+User-callback calls 73723, time in user-callback 0.04 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 310 rows, 3000 columns and 30027 nonzeros
+Model fingerprint: 0x3c7d2d1d
+Variable types: 0 continuous, 3000 integer (3000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 2e+03]
+Found heuristic solution: objective -43146.00000
+Presolve time: 0.06s
+Presolved: 310 rows, 3000 columns, 30027 nonzeros
+Variable types: 0 continuous, 3000 integer (3000 binary)
+
+Root relaxation: objective -7.379774e+04, 838 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -73797.739    0   18 -43146.000 -73797.739  71.0%     -    0s
+H    0     0                    -73360.00000 -73797.739  0.60%     -    0s
+H    0     0                    -73593.00000 -73797.739  0.28%     -    0s
+     0     0 -73797.730    0   22 -73593.000 -73797.730  0.28%     -    0s
+H    0     0                    -73725.00000 -73797.730  0.10%     -    0s
+     0     0 -73797.704    0   20 -73725.000 -73797.704  0.10%     -    0s
+     0     0 -73797.701    0   22 -73725.000 -73797.701  0.10%     -    0s
+     0     0 -73797.701    0   22 -73725.000 -73797.701  0.10%     -    0s
+     0     2 -73797.000    0   22 -73725.000 -73797.000  0.10%     -    1s
+   541   543 -73776.414  524   16 -73725.000 -73797.000  0.10%   4.6    5s
+  1252  1076 -73784.394  176   17 -73725.000 -73797.000  0.10%   9.8   10s
+  2409  1778 -73787.402  186   18 -73725.000 -73797.000  0.10%  17.4   15s
+  3787  2768 -73777.872  362   18 -73725.000 -73797.000  0.10%  20.0   20s
+H 4322  3246                    -73726.00000 -73797.000  0.10%  19.7   21s
+H 4648  3525                    -73732.00000 -73797.000  0.09%  18.6   22s
+  7125  5898 -73786.908  389   17 -73732.000 -73797.000  0.09%  13.7   25s
+ 10203  8837 -73780.710  454   22 -73732.000 -73797.000  0.09%  11.5   30s
+H10210  8399                    -73740.00000 -73797.000  0.08%  11.5   31s
+ 10292  8455 -73796.173   59   18 -73740.000 -73797.000  0.08%  11.6   35s
+ 10745  8757 -73767.816  285   17 -73740.000 -73797.000  0.08%  12.1   40s
+H10941  8466                    -73741.00000 -73797.000  0.08%  12.3   41s
+ 11837  8992 -73792.418  244   18 -73741.000 -73797.000  0.08%  13.1   45s
+ 12908  9596 -73791.257  121   17 -73741.000 -73797.000  0.08%  13.7   50s
+ 14180 10395 -73793.901  179   18 -73741.000 -73797.000  0.08%  14.3   55s
+ 16720 12001 -73759.532  497   16 -73741.000 -73797.000  0.08%  12.7   60s
+
+Cutting planes:
+  Gomory: 9
+
+Explored 16721 nodes (213521 simplex iterations) in 60.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 8: -73741 -73740 -73732 ... -43146
+
+Time limit reached
+Best objective -7.374100000000e+04, best bound -7.379700000000e+04, gap 0.0759%
+
+User-callback calls 60378, time in user-callback 0.03 sec
+Gurobi Optimizer version 9.1.1 build v9.1.1rc0 (linux64)
+Thread count: 16 physical cores, 32 logical processors, using up to 1 threads
+Optimize a model with 310 rows, 3000 columns and 30027 nonzeros
+Model fingerprint: 0x3c7d2d1d
+Variable types: 0 continuous, 3000 integer (3000 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 9e+00]
+  Objective range  [6e+01, 4e+02]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 2e+03]
+Presolved: 310 rows, 3000 columns, 30027 nonzeros
+
+Continuing optimization...
+
+
+Cutting planes:
+  Gomory: 9
+
+Explored 16721 nodes (213521 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 32 available processors)
+
+Solution count 8: -73741 -73740 -73732 ... -43146
+
+Optimal solution found (tolerance 1.00e-03)
+Best objective -7.374100000000e+04, best bound -7.379700000000e+04, gap 0.0759%
+
+User-callback calls 60405, time in user-callback 0.03 sec
+dir already exists
 dir already exists

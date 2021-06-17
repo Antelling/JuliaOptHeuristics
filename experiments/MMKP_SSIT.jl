@@ -33,8 +33,7 @@ end
 
 problems =  MMKP.load_problems()
 
-resdir="../results/test_mmkp"
+resdir="./results/test_mmkp"
 mkpath(resdir)
 main(resdir, problems[1:1])
-main(resdir, problems[2:5])
-solver_name(problems[2].model)
+main(resdir, problems)
