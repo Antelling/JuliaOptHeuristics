@@ -6,9 +6,15 @@ include("../src/JOH.jl")
 include("SSIT.jl")
 
 method(m=60, n_threads=1) = JOH.Matheur.SSIT.make_SSIT_method(
-	[.0001, .001, .01],
-	[m, m, m],
+	[.0001, .001, .003, .005],
+	[m, 	m,	  m, 	m],
 	"even time", n_threads)
+
+method(m=60, n_threads=1) = JOH.Matheur.SSIT.make_SSIT_method(
+	[.0001],
+	[m*20],
+	"base", n_threads)
+
 _make_result_table(res_dir) = try mkdir(res_dir) catch IOError println("dir already exists") end
 function run_trial(method, res_dir, problems)
 	_make_result_table(res_dir)

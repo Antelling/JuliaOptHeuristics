@@ -4,7 +4,9 @@ using DataFrames
 function load_dir(dir)
     res = []
     for file in readdir(dir)
-        push!(res, CSV.read(joinpath(dir, file), DataFrame))
+		df = CSV.read(joinpath(dir, file), DataFrame)
+		insertcols!(df, 1, :file=>[file])
+        push!(res, df)
     end
     res
 end
@@ -15,9 +17,10 @@ gurobi_gap_comp = [
 	("results/GAP_exp_Gurobi/second", "gurobi_second.xlsx"),
 	("results/GAP_exp_Gurobi/third", "gurobi_third.xlsx")
 ]
+mmkp_res = [("results/test_mmkp", "test_mmkp.xlsx")]
 
 function write_results(results_pairs)
-	for (d, n) in gurobi_gap_comp
+	for (d, n) in results_pairs 
 		r = load_dir(d)
 		df = vcat(r..., cols=:union)
 		XLSX.writetable(
@@ -29,4 +32,4 @@ function write_results(results_pairs)
 	end
 end
 
-write_results(gurobi_gap_comp)
+write_results(mmkp_res)
