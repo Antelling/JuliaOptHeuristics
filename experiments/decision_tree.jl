@@ -62,11 +62,11 @@ println("code loaded.")
 main(problems[1:1], 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
 println("code compiled.")
 
-main(problems, 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
+#main(problems, 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
 println("A finished...")
 
 #main(problems, 'B', res_dir="results/decision_tree/B/")
 #println("B finished...")
 
-#main(problems, 'C', res_dir="results/decision_tree/C/")
+main(problems, 'C', res_dir="results/decision_tree/C/")
 #println("C finished. Goodbye.")
