@@ -146,6 +146,6 @@ function load_song_results(; folder="results/full_song_mdmkp")
 end
 
 
-df = load_song_results(folder="results/decision_tree/B")
+df = load_song_results(folder="results/decision_tree/A_v2")
 
-XLSX.writetable("decision_tree_B.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))
+XLSX.writetable("decision_tree_Av2.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))

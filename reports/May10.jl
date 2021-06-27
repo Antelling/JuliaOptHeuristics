@@ -74,14 +74,14 @@ end
 # ╔═╡ 8e2669a4-5382-45bc-b91e-2fe27b2a6910
 #read the excel file we are summarizing
 begin 
-	f = XLSX.readxlsx("../decision_tree_B.xlsx")
+	f = XLSX.readxlsx("../decision_tree_Av2.xlsx")
 	sh = f["Sheet1"]
 	dfm = DataFrame(map(col_to_pair, eachcol(DataFrame(sh[:]))))
 	dfm
 end
 
 # ╔═╡ dde4a7e7-2298-440c-ae72-3546aaf8ef56
-vasko_sum_table = case_dataset_pivot(dfm, "ssit");
+vasko_sum_table = case_dataset_pivot(dfm, "base");
 
 # ╔═╡ 853f8eab-e829-423c-9a11-8153ff14090d
 show_tbl(vasko_sum_table)
