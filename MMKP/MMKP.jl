@@ -19,9 +19,9 @@ struct MMKP_Data
     groups::Vector{Group}
 end
 
-struct MMKP_Prob 
+mutable struct MMKP_Prob 
     id::Dict 
-    model::Model
+    model::Union{Model,Nothing}
 end
 
 include("loaders.jl")

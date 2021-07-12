@@ -32,4 +32,4 @@ function write_results(results_pairs)
 	end
 end
 
-write_results(mmkp_res)
+write_results(dec_tree)
