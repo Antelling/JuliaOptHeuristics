@@ -152,6 +152,7 @@ function generate_comparison_data2(
 		CSV.write("$(results_dir)/$(_get_id(problem.id)).csv", result_df)
 
 		push!(results, result_df)
+		problem.model = nothing
 	end
 
 	results

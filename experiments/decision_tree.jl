@@ -8,6 +8,11 @@ loose_problems = MDMKP.loosen.(tight_problems)
 problems = vcat(tight_problems, loose_problems)
 problems = MDMKP.set_decision.(problems)
 
+ass = map(p->p.id.category, problems)
+count(i->i=='A', ass)
+count(i->i=='B', ass)
+count(i->i=='C', ass)
+
 ssit_methods = Dict(
 	'A'=> JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001, .001, .005, .01, .02],

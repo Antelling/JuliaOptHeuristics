@@ -72,6 +72,7 @@ function read_result_dir(folder)
 	summaries = []
 	for problem in readdir(folder)
 		df = read_problem_dir(folder, problem)
+		println(df)
 		push!(results, df)
 		push!(summaries, summarize_df(df))
 	end
@@ -146,6 +147,5 @@ function load_song_results(; folder="results/full_song_mdmkp")
 end
 
 
-df = load_song_results(folder="results/decision_tree/A_v2")
-
-XLSX.writetable("decision_tree_Av2.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))
+df = load_song_results(folder="results/decision_tree/C")
+XLSX.writetable("decision_tree_C.xlsx", collect(DataFrames.eachcol(df)), DataFrames.names(df))
