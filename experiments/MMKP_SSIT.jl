@@ -25,8 +25,8 @@ function run_trial(res_dir, problems)
 	base_problems = deepcopy(problems)
 
 	for (method, probs, dir) in [
-			(ssit_method(1), problems, sd), 
-			(base_method(1), base_problems, bd)]
+			(ssit_method(), problems, sd), 
+			(base_method(), base_problems, bd)]
 		map(p->set_optimizer(p.model, Gurobi.Optimizer), probs)
 		SE.generate_comparison_data2(method, probs, results_dir=dir)
 	end
