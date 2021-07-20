@@ -24,13 +24,13 @@ ssit_methods = Dict(
 			"B method", 1),
 	'C'=> JOH.Matheur.SSIT.make_SSIT_method(
 			[.005, .01,   .02,   .05],
-			[60*3, 60*10, 60*10, 60*10],
+			[60*60, 60*60, 60*60, 60*60],
 			"C method", 1)
 )
 
 base_case = JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001],
-			[60*60],
+			[60*60*4],
 			"Base method", 1)
 
 function log_ssit_run(problem, method, dir; 
@@ -51,7 +51,7 @@ function main(problems, case; res_dir="results/decision_tree/", use_base=true)
 
 		problem_dir = joinpath(res_dir, "ssit", "$(problem.id.id)")
 		mkpath(problem_dir)
-		log_ssit_run(problem, method, problem_dir)
+		# log_ssit_run(problem, method, problem_dir)
 
 		if use_base
 			base_dir = joinpath(res_dir, "base", "$(problem.id.id)")
@@ -73,5 +73,6 @@ println("A finished...")
 #main(problems, 'B', res_dir="results/decision_tree/B/")
 #println("B finished...")
 
-main(problems[580:end], 'C', res_dir="results/decision_tree/C/")
+# main(problems[580:end], 'C', res_dir="results/decision_tree/C/")
+main(problems[555:557], 'C', res_dir="results/decision_tree/long_D/")
 #println("C finished. Goodbye.")

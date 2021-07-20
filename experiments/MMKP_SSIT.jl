@@ -6,13 +6,13 @@ include("../src/JOH.jl")
 include("SSIT.jl")
 
 ssit_method(m=60, n_threads=1) = JOH.Matheur.SSIT.make_SSIT_method(
-	[.0001, .001, .003, .005],
-	[m, 	m,	  m, 	m],
-	"even time", n_threads)
+	[.001, .003, .005],
+	[m*2,	  m, 	m],
+	"ssit", n_threads)
 
 base_method(m=60, n_threads=1) = JOH.Matheur.SSIT.make_SSIT_method(
 	[.0001],
-	[m*20],
+	[m*5],
 	"base", n_threads)
 
 _make_result_table(res_dir) = try mkpath(res_dir) catch IOError println("dir already exists") end
@@ -33,7 +33,7 @@ function run_trial(res_dir, problems)
 end
 
 problems =  MMKP.load_problems()
-resdir="./results/test_mmkp"
+resdir="./results/long_mmkp"
 mkpath(resdir)
 
 run_trial(resdir, problems)

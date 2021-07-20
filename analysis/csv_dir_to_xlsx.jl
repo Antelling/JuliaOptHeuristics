@@ -17,7 +17,10 @@ gurobi_gap_comp = [
 	("results/GAP_exp_Gurobi/second", "gurobi_second.xlsx"),
 	("results/GAP_exp_Gurobi/third", "gurobi_third.xlsx")
 ]
-mmkp_res = [("results/test_mmkp", "test_mmkp.xlsx")]
+mmkp_res = [
+	("results/test_mmkp/ssit", "ssit_mmkp.xlsx"),
+	("results/test_mmkp/base", "base_mmkp.xlsx")
+	]
 
 function write_results(results_pairs)
 	for (d, n) in results_pairs 
@@ -32,4 +35,4 @@ function write_results(results_pairs)
 	end
 end
 
-write_results(dec_tree)
+write_results(mmkp_res)

@@ -108,7 +108,7 @@ function create_MIPS_model(problem::MDMKP_Prob;
 end
 function direct_model(problem::MDMKP_Prob, model;
 		time_limit=20,
-		weight=1000,
+		weight=1000000,
 		num_threads=6)::Model
 	_create_MIPS_model(problem, model, time_limit, weight, num_threads)
 end
