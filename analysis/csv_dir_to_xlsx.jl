@@ -18,8 +18,8 @@ gurobi_gap_comp = [
 	("results/GAP_exp_Gurobi/third", "gurobi_third.xlsx")
 ]
 mmkp_res = [
-	("results/test_mmkp/ssit", "ssit_mmkp.xlsx"),
-	("results/test_mmkp/base", "base_mmkp.xlsx")
+	("results/long_mmkp/ssit", "long_ssit_mmkp.xlsx"),
+	("results/long_mmkp/base", "long_base_mmkp.xlsx")
 	]
 
 function write_results(results_pairs)

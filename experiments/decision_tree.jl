@@ -74,5 +74,5 @@ println("A finished...")
 #println("B finished...")
 
 # main(problems[580:end], 'C', res_dir="results/decision_tree/C/")
-main(problems[555:557], 'C', res_dir="results/decision_tree/long_D/")
+main(problems[555:558], 'C', res_dir="results/decision_tree/long_D/")
 #println("C finished. Goodbye.")
