@@ -1,7 +1,7 @@
-function loosen(problem; id_increment=1000)
+function loosen(problem; percent=.1, id_increment=1000)
     new_lower_bounds = []
     for lb in problem.lower_bounds
-        new_lb = convert(Int, floor(lb[2] * .1))
+        new_lb = convert(Int, floor(lb[2] * percent))
         push!(new_lower_bounds, (lb[1], new_lb))
     end
 
@@ -42,7 +42,9 @@ function decide(problem)
             end
         end
     else
-        if id.n_demands >= 12.5
+        if id.dataset == 7 && in(id.case, [3, 6]) 
+            'D'
+        elseif id.n_demands >= 12.5
             'C'
         else
             if id.n_dimensions < 7.5

@@ -1,7 +1,17 @@
 include("../src/JOH.jl")
 include("../MDMKP/MDMKP.jl")
 include("SSIT.jl")
-using CPLEX
+
+use_cplex = true
+if use_cplex
+	using CPLEX
+	optimizer = CPLEX.Optimizer
+	get_det_time = CPLEX.CPXgetdettime
+else
+	using Gurobi 
+	optimizer = Gurobi.Optimizer
+	get_det_time = nothing 
+end 
 
 tight_problems = MDMKP.load_folder()
 loose_problems = MDMKP.loosen.(tight_problems)
@@ -12,8 +22,9 @@ ass = map(p->p.id.category, problems)
 count(i->i=='A', ass)
 count(i->i=='B', ass)
 count(i->i=='C', ass)
+count(i->i=='D', ass)
 
-ssit_methods = Dict(
+const ssit_methods = Dict(
 	'A'=> JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001, .001, .005, .01, .02],
 			[60*5,   60*3,  60*3, 60*3, 60*3],
@@ -24,42 +35,73 @@ ssit_methods = Dict(
 			"B method", 1),
 	'C'=> JOH.Matheur.SSIT.make_SSIT_method(
 			[.005, .01,   .02,   .05],
-			[60*60, 60*60, 60*60, 60*60],
-			"C method", 1)
-)
+			[60*3, 60*10, 60*10, 60*10],
+			"C method", 1),
+	'D'=> JOH.Matheur.SSIT.make_SSIT_method(
+			[.005, .01,   .02,   .05],
+			[60*3, 60*10, 60*10, 60*10],
+			"D method", 1)
+) 
 
-base_case = JOH.Matheur.SSIT.make_SSIT_method(
+const base_case = JOH.Matheur.SSIT.make_SSIT_method(
 			[.0001],
-			[60*60*4],
-			"Base method", 1)
+			[60*60],
+			"Base method", 1) 
 
+
+"""
+Configured SSIT run using the optimizer configured at the beginning of the file. 
+"""
 function log_ssit_run(problem, method, dir; 
-		opt=CPLEX.Optimizer, 
-		det_log=CPLEX.CPXgetdettime,
+		opt=optimizer, 
+		det_log=get_det_time,
 		model_gen=MDMKP.create_MIPS_model)
 	SE.log_ssit_run(model_gen(problem, opt), method, dir, opt, det_log)
 end
 
-function main(problems, case; res_dir="results/decision_tree/", use_base=true)
+"""
+test the problems with the passed case on the corresponding method defined in the const ssit_methods
+parameters: 
+	problems: list of MDMKP problems to test 
+	case: decision tree classification to test on 
+		accepts: A, B, C, or D 
+	loosen: if -1, do not loosen problem, if value from 0 to 1, loosen demand constraints of tested problems via 
+			demand * loosen
+		default: -1
+	use_base: should the base case be tested?
+		default: true
+	res_dir: directory to store results in 
+		default: results/decision_tree
+	ssit_methods: dict of SSIT methods. Must contain entry for the passed case. 
+"""
+function main(problems, case; res_dir="results/decision_tree/", use_base=true, loosen=-1, 
+		ssit_methods=ssit_methods, base_method=base_case)
+	
 	mkpath(res_dir)
+
 	for problem in problems
-		if problem.id.category != case
+		if problem.id.category != case #check case matches 
 			continue
 		end
 
-		method = ssit_methods[problem.id.category]
+		if 0 < loosen < 1 #check if we should loosen the problem demand constraints 
+			problem = MDMKP.loosen(problem, percent=loosen, id_increment=0)
+		end
 
-		problem_dir = joinpath(res_dir, "ssit", "$(problem.id.id)")
-		mkpath(problem_dir)
-		# log_ssit_run(problem, method, problem_dir)
+		# make directory for resutls
+		problem_dir = mkpath(joinpath(res_dir, "ssit", "$(problem.id.id)"))
 
+		# run SSIT trial 
+		log_ssit_run(problem, ssit_methods[problem.id.category], problem_dir)
+
+		# run base test 
 		if use_base
-			base_dir = joinpath(res_dir, "base", "$(problem.id.id)")
-			mkpath(base_dir)
-			log_ssit_run(problem, base_case, base_dir)
+			base_dir = mkpath(joinpath(res_dir, "base", "$(problem.id.id)"))
+			log_ssit_run(problem, base_method, base_dir)
 		end
 	end
 end
+
 
 println("code loaded.")
 
@@ -67,12 +109,6 @@ println("code loaded.")
 main(problems[1:1], 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
 println("code compiled.")
 
-#main(problems, 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
-println("A finished...")
+main(problems, 'D', res_dir="results/decision_tree/D/")
 
-#main(problems, 'B', res_dir="results/decision_tree/B/")
-#println("B finished...")
-
-# main(problems[580:end], 'C', res_dir="results/decision_tree/C/")
-main(problems[555:558], 'C', res_dir="results/decision_tree/long_D/")
-#println("C finished. Goodbye.")
+println("finished. Goodbye.")
