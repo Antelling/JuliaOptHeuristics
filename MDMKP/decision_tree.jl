@@ -1,4 +1,4 @@
-function loosen(problem; percent=.1, id_increment=1000)
+function loosen(problem; percent=.1, id_increment=1000, label::Char='?')
     new_lower_bounds = []
     for lb in problem.lower_bounds
         new_lb = convert(Int, floor(lb[2] * percent))

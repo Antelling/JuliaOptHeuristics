@@ -85,7 +85,7 @@ function main(problems, case; res_dir="results/decision_tree/", use_base=true, l
 		end
 
 		if 0 < loosen < 1 #check if we should loosen the problem demand constraints 
-			problem = MDMKP.loosen(problem, percent=loosen, id_increment=0)
+			problem = MDMKP.loosen(problem, percent=loosen, id_increment=0, label=case)
 		end
 
 		# make directory for resutls
