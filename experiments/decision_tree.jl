@@ -109,6 +109,7 @@ println("code loaded.")
 main(problems[1:1], 'A', res_dir="results/decision_tree/A_v2/", use_base=false)
 println("code compiled.")
 
-main(problems, 'D', res_dir="results/decision_tree/D/")
+main(problems, 'D', res_dir="results/decision_tree/D_90/", loosen=.9)
+main(problems, 'D', res_dir="results/decision_tree/D_80/", loosen=.8)
 
 println("finished. Goodbye.")
