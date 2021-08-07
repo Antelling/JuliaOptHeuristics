@@ -92,7 +92,7 @@ function main(problems, case; res_dir="results/decision_tree/", use_base=true, l
 		problem_dir = mkpath(joinpath(res_dir, "ssit", "$(problem.id.id)"))
 
 		# run SSIT trial 
-		log_ssit_run(problem, ssit_methods[problem.id.category], problem_dir)
+		log_ssit_run(problem, ssit_methods[case], problem_dir)
 
 		# run base test 
 		if use_base
